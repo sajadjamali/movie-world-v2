@@ -8,7 +8,7 @@ const url = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const getApi = async (slug: string) => {
     try {
-        const response = await fetch(`${url}api/${slug}`)
+        const response = await fetch(`${url}${slug}`)
         if (!response.ok) getErrorMessage(response.status)
         const responseData = await response.json();
         return responseData;
@@ -19,7 +19,7 @@ export const getApi = async (slug: string) => {
 
 export const postApi = async (slug: string, data: IAuthData) => {
     try {
-        const response = await fetch(`${url}api/${slug}`, {
+        const response = await fetch(`${url}${slug}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

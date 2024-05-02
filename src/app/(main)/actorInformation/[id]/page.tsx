@@ -1,6 +1,5 @@
 import { imgBaseUrl } from "@/services/api";
 import Image from "next/image";
-import type { Metadata } from 'next';
 import Person3Icon from '@mui/icons-material/Person3';
 import Biography from "@/components/Biography";
 import ActorMovies from "@/components/ActorMovies";
@@ -8,7 +7,8 @@ import "../../../../styles/actorInformation.css";
 import { getActor } from "@/services/dataFeching";
 import { setIcon } from "@/utils";
 import Particle from "@/components/animation/Particle";
-
+import { Metadata } from 'next';
+ 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
     const actor = await getActor(params.id);
     return {

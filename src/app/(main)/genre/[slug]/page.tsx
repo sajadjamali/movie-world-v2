@@ -1,10 +1,10 @@
-import type { Metadata } from 'next'
 import PaginationMovies from "@/components/PaginationMovies";
+import { Metadata } from 'next';
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     return {
         title: `genre | ${params.slug}`,
-        description: ''
+        description: `movies of ${params.slug}`
     }
 }
 

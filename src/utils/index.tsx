@@ -1,0 +1,110 @@
+import { genres } from "@/constant";
+import { ProductionCountrieType } from "@/types";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import WorkIcon from '@mui/icons-material/Work';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import CloseIcon from '@mui/icons-material/Close';
+import HomeIcon from '@mui/icons-material/Home';
+import MovieCreationIcon from '@mui/icons-material/MovieCreation';
+import AnimationIcon from '@mui/icons-material/Animation';
+import InsertChartIcon from '@mui/icons-material/InsertChart';
+import BookIcon from '@mui/icons-material/Book';
+import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
+import { baseUrl, api_key } from "@/services/api";
+
+export const getGenreId = (genreName: string): number => {
+    let genreId: number = 0;
+    genres.map(genre => {
+        if (genre.name == genreName) {
+            genreId = genre.id;
+            return;
+        }
+    })
+    return genreId;
+}
+
+// ------------------------------------------------------------------
+
+export const getFirstFifteenWords = (str: string): string => {
+    if (str) {
+        const words = str.split(' ');
+        return words.length > 15 ? words.slice(0, 15).join(' ') : str;
+    } else return '';
+}
+
+// ------------------------------------------------------------------
+
+export const getCountries = (data: ProductionCountrieType[]): string => {
+    let countries: string = ""
+    if (data.length > 0) {
+        let arr = data.map((p: ProductionCountrieType) => {
+            if (p.name == "United States of America")
+                return "America"
+            else return p.name
+        })
+        countries = arr.join("-")
+    } else {
+        countries = "America"
+    }
+    return countries;
+}
+
+// -------------------------------------------------------------------
+
+export const getBiography = (biography: string): string => {
+    if (biography.split(' ').length < 100) {
+        return biography + "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi laudantium ad tenetur cum inventore dolores cumque aliquid. Quisquam commodi non necessitatibus a. Officia praesentium commodi quos tempore sunt perferendis temporibus corrupti quasi, rem recusandae accusantium sit necessitatibus! Necessitatibus reiciendis totam architecto mollitia, magnam dignissimos voluptatem fugiat commodi saepe optio velit nostrum repellat! Quidem, autem eveniet. Itaque nemo neque ex ea illo! Ipsa porro molestias doloremque voluptates cumque quo esse, dolor blanditiis nam iure mollitia omnis sit unde eos, distinctio praesentium magni quos quisquam, sapiente autem assumenda. At error quos ullam numquam rem, cupiditate molestiae ducimus enim sequi porro autem nemo itaque quibusdam mollitia, ab commodi blanditiis corporis labore obcaecati consectetur sunt iste? Quam corporis dolorem exercitationem tempora quisquam quod quo pariatur dignissimos aperiam incidunt inventore."
+    } else return biography
+}
+
+// -------------------------------------------------------------------
+
+export const isGenre = (slug: string): boolean => {
+    const isNameExists = genres.some(genre => genre.name === slug);
+    return isNameExists;
+}
+
+// -------------------------------------------------------------------
+
+export const getFetchUrl = (slug: string, pageNumber: number): string => {
+    let fetchUrl = '';
+    if (isGenre(slug)) {
+        const genreId = getGenreId(slug);
+        return fetchUrl = `${baseUrl}/discover/movie?with_genres=${genreId}&page=${pageNumber}&api_key=${api_key}`
+    } else {
+        return fetchUrl = `${baseUrl}/movie/${slug}?page=${pageNumber}&api_key=${api_key}`
+    }
+}
+
+// -------------------------------------------------------------------
+
+export const convertToPascalCase = (str: string): string => {
+    return str.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+
+// -------------------------------------------------------------------
+
+export const setIcon = (index: number) => {
+    switch (index) {
+        case 0:
+            return <HomeIcon />
+        case 1:
+            return <MovieCreationIcon />
+        case 2:
+            return <AnimationIcon />
+        case 3:
+            return <InsertChartIcon />
+        case 4:
+            return <BookIcon />
+        case 5:
+            return <SupervisedUserCircleIcon />
+        case 9:
+            return <WorkIcon fontSize="small" className="text-yellow-500" />
+        case 10:
+            return <CalendarMonthIcon fontSize="small" className="text-yellow-500" />
+        case 11:
+            return <LocationOnIcon fontSize="small" className="text-yellow-500" />
+        case 12:
+            return <CloseIcon fontSize="small" className="text-yellow-500" />
+    }
+}

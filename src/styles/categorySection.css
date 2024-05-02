@@ -1,0 +1,28 @@
+.swiper-scrollbar {
+    height: 7px !important;
+    margin-top: 7px;
+    position: static !important;
+    background-color: rgb(240, 241, 255);
+}
+
+.swiper-scrollbar-drag {
+    background-color: rgb(10, 10, 204);
+}
+
+@keyframes custom-ping {
+    0% {
+        transform: scale(3);
+    }
+
+    50% {
+        transform: scale(4);
+    }
+
+    100% {
+        transform: scale(3);
+    }
+}
+
+.animate-ping-custom {
+    animation: custom-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}

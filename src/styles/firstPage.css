@@ -1,0 +1,79 @@
+.backgroundAnimation {
+    animation: backgroundAnimation 10s infinite;
+}
+
+#siteName {
+    animation: stroke 5s forwards alternate;
+}
+
+button {
+    transition: transform .3s;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        scale: 1;
+        rotate: 0deg;
+    }
+
+    50% {
+        scale: 1.05;
+        rotate: -4deg;
+    }
+
+    100% {
+        scale: 1;
+        rotate: 0deg;
+    }
+}
+
+@keyframes stroke {
+    0% {
+        fill: rgba(221, 7, 7, 0);
+        stroke: rgb(54, 112, 160);
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 2;
+    }
+
+    50% {
+        fill: rgba(221, 7, 7, 0);
+        stroke: rgb(12, 175, 66);
+    }
+
+    70% {
+        fill: rgba(138, 20, 59, 0);
+        stroke: rgba(54, 95, 160, 1);
+    }
+
+    80% {
+        fill: rgba(212, 9, 60, 0);
+        stroke: rgb(160, 54, 54);
+        stroke-width: 3;
+    }
+
+    100% {
+        fill: rgb(196, 15, 15);
+        stroke: rgb(250, 13, 13);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        stroke-width: 0;
+    }
+}
+
+#letsGoLink {
+    animation: letsGoLink 0.8s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes letsGoLink {
+    from {
+        opacity: 0;
+        left: 25%;
+    }
+
+    to {
+        opacity: 1;
+        left: 50%;
+    }
+}

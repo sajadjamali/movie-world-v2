@@ -1,0 +1,24 @@
+#hambergerMenu:hover,
+#closeIcon:hover {
+  background-color: none !important;
+  animation: hambergerRotate 1s;
+}
+
+.MuiFormControlLabel-root {
+  margin: 0;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  min-width: 0 !important;
+  padding-left: 0 !important;
+}
+
+@keyframes hambergerRotate {
+  from {
+    transform: rotate(20deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -17,7 +17,6 @@ const Page = () => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const onSubmit: SubmitHandler<IRegisterInfo> = async (data) => {
-        console.log(trimedData(data))
         try {
             setErrorMssage('');
             const res = await registerUser(trimedData(data));

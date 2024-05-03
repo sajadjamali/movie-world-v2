@@ -28,6 +28,6 @@ export async function POST(request: Request) {
         return Response.json({ message: 'User created successfully', user: newUser }, { status: 201 });
 
     } catch (error) {
-        return Response.json({ message: 'Internal server error' }, { status: 500 });
+        return Response.json({ message: 'Internal server error', error }, { status: 500 });
     }
 }

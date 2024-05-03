@@ -1,14 +1,17 @@
-import { IRegisterInfo, ILoginInfo } from "@/types/auth";
+interface IData {
+    name?: string;
+    password: string;
+    phone?: string;
+    email: string;
+}
 
-export const trimedData = (obj: IRegisterInfo | ILoginInfo): IRegisterInfo | ILoginInfo => {
-    const trimmedObject: Partial<IRegisterInfo> = {};
-    for (const key in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, key)) {
-            const value = obj[key as keyof (IRegisterInfo | ILoginInfo)];
-            trimmedObject[key as keyof IRegisterInfo] = typeof value === 'string' ? value.trim() : value;
+export const trimedData = (data: IData): IData => {
+    for (const key of Object.keys(data) as Array<keyof IData>) {
+        if (typeof data[key] === 'string') {
+            data[key] = data[key]?.trim() ?? '';
         }
     }
-    return trimmedObject as IRegisterInfo;
+    return data;
 }
 
 // ----------------------------------------------------------------------

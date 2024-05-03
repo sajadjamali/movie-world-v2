@@ -18,8 +18,6 @@ const Page = async ({ searchParams }:
         searchParams?: { [key: string]: string | string[] | undefined }
     }) => {
 
-    // if (!searchParams?.ssearch) redirect('/home');
-
     // const searchedMovies = await getSearchedMovies(searchParams?.s as string)
     // if (!searchedMovies.results.length) return <div className='mt-10'>There are no items</div>
     // console.log(searchedMovies)

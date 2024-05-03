@@ -7,16 +7,15 @@ export async function middleware(request: NextRequest) {
 
     switch (requestedRoute) {
         case '/search':
-            const isSearchParam = request.nextUrl.search.startsWith('?s=');
-            if (!isSearchParam)
+            const searchParam = request.nextUrl.search.startsWith('?s=');
+            if (!searchParam)
                 return NextResponse.redirect(new URL('/home', request.url));
         case '/auth/login' || '/auth/register':
             if (request.cookies.get('token'))
                 return NextResponse.redirect(new URL('/home', request.url));
         default:
-            return NextResponse.redirect(new URL('/home', request.url));
+            return NextResponse.next();
     }
-    return NextResponse.next();
 }
 
 export const config = {

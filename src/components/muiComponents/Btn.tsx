@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 const Btn: React.FC<{ href: string, icon: any, text: string }> = ({ href, icon, text }) => {
     return (
         <Button
-            target='_blank'
+            target={`${text !== 'Back' ? '_blank' : ''}`}
             sx={{
                 color: 'white',
                 backgroundColor: '#0f70d1',

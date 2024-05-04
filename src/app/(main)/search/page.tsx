@@ -18,8 +18,8 @@ const Page = async ({ searchParams }:
         searchParams?: { [key: string]: string | string[] | undefined }
     }) => {
  
-    const searchedMovies = await getSearchedMovies(searchParams?.s as string)
-    if (!searchedMovies.results.length || !searchParams?.s) return <div className='mt-10'>There are no items</div>
+    // const searchedMovies = await getSearchedMovies(searchParams?.s as string)
+    // if (!searchedMovies.results.length || !searchParams?.s) return <div className='mt-10'>There are no items</div>
     // console.log(searchedMovies)
 
     return (

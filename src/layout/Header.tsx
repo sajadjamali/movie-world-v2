@@ -4,6 +4,7 @@ import "../styles/header.css";
 import Link from "next/link";
 import Image from "next/image";
 import Menu from "./Menu";
+import SearchBox from './SearchBox';
 import { links } from '@/constant';
 import { usePathname } from 'next/navigation';
 import GenreList from '@/components/GenreList';
@@ -15,7 +16,10 @@ const Header: React.FC = () => {
 
     return (
         <div className="bg-gray-950 w-full fixed top-0 z-50 pb-1 pt-2 ps-2 min-[350px]:px-5 lg:p-0 flex items-center justify-between lg:justify-around">
-            <Profile />
+            <div className='flex items-center space-x-2'>
+                <Profile />
+                <SearchBox />
+            </div>
             <Image
                 className="w-auto lg:w-40"
                 src="/assets/imgs/logo.png"
@@ -45,8 +49,8 @@ const Header: React.FC = () => {
                     </div>
                 </li>
             </ul>
-        </div >
-    );
+        </div>
+    )
 }
 
 export default Header;

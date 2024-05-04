@@ -22,3 +22,51 @@
     transform: rotate(360deg);
   }
 }
+
+/* search box styles */
+
+.search>div {
+  display: inline-block;
+  position: relative;
+  filter: drop-shadow(0 0.1px #0091c2);
+}
+
+.search>div:after {
+  content: "";
+  background: white;
+  width: 4px;
+  height: 20px;
+  position: absolute;
+  top: 40px;
+  right: 2px;
+  transform: rotate(135deg);
+}
+
+.search>div>input {
+  color: black;
+  font-size: 16px;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border: solid 3px #0091c2;
+  outline: none;
+  border-radius: 35px;
+  transition: width 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 5px 30px 4px;
+}
+
+.search>div>input::placeholder {
+  color: rgb(63, 62, 62);
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.search>div>input:focus::placeholder {
+  opacity: 1;
+}
+
+.search>div>input:focus,
+.search>div>input:not(:placeholder-shown) {
+  width: 250px;
+  cursor: auto;
+}

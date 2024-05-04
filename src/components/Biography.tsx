@@ -1,15 +1,13 @@
 "use client"
 import React, { useState } from 'react';
-import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useRouter } from 'next/navigation';
 import { getBiography } from '@/utils';
-
-const linkStyle = "bg-yellow-500 py-1 hover:bg-sky-600 hover:text-white hover:scale-105 px-4 rounded-md flex";
+import Btn from './muiComponents/Btn';
+import MovieIcon from '@mui/icons-material/Movie';
 
 const Biography: React.FC<{ biography: string, imdbLink: string }> = ({ biography, imdbLink }) => {
 
-    const router = useRouter();
     const [showFullBiography, setShowFullBiography] = useState(false);
     const shortbiography = biography.split(' ').slice(0, 50).join(' ');
 
@@ -28,13 +26,8 @@ const Biography: React.FC<{ biography: string, imdbLink: string }> = ({ biograph
                 <div className='hidden overflow-hidden mt-2 px-5 lg:block leading-7 text-justify xl:leading-8'>{getBiography(biography)}</div>
             </div>
             <nav className="text-xl mt-8 flex justify-center text-black space-x-6">
-                <Link className={linkStyle} target="_blank" href={`https://www.imdb.com/name/${imdbLink}`}>
-                    IMDB
-                </Link>
-                <button onClick={router.back} className={linkStyle}>
-                    <ArrowBackIcon />
-                    <p>Back</p>
-                </button>
+                <Btn href={`https://www.imdb.com/name/${imdbLink}`} icon={<MovieIcon />} text="IMDB" />
+                <Btn href="/home" icon={<ArrowBackIcon />} text="Back" />
             </nav>
         </section >
     );

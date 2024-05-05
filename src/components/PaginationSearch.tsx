@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import MoviesList from "@/components/MoviesList";
-import { convertToPascalCase, isExistPoster, getFetchUrl } from '@/utils';
+import { isExistPoster, getFetchUrl } from '@/utils';
 import { useGetSearchedItems } from "@/services/search";
 import Actor from "./Actor";
 import Loading from "./Loading";
@@ -20,7 +20,7 @@ const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) =>
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPageNumber(value);
-    };
+    }
 
     if (isLoading) return <Loading />
     if (isError) return <p className="my-10 text-white text-center text-xl">error😑</p>
@@ -30,8 +30,6 @@ const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) =>
             <p>Unfortunately, there is no item with this name</p>
         </div>
     )
-
-    // pascal code ro check kon
 
     return (
         <>
@@ -44,7 +42,7 @@ const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) =>
             {
                 isExistPoster(data.results) ? (
                     selectedItem === '1' ? (
-                        <MoviesList title={`${convertToPascalCase(`Searched text: ${searchValue}`)}`} movies={data.results} />
+                        <MoviesList title={`Searched text: ${searchValue}`} movies={data.results} />
                     ) : (
                         <>
                             <p className="text-white text-2xl text-center my-10">Searched text: <span className="text-rose-500">{searchValue}</span></p>

@@ -11,6 +11,7 @@ import InsertChartIcon from '@mui/icons-material/InsertChart';
 import BookIcon from '@mui/icons-material/Book';
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import { baseUrl, api_key } from "@/services/api";
+import { ActorType, MovieType } from "@/types";
 
 export const getGenreId = (genreName: string): number => {
     let genreId: number = 0;
@@ -66,13 +67,23 @@ export const isGenre = (slug: string): boolean => {
 
 // -------------------------------------------------------------------
 
-export const getFetchUrl = (slug: string, pageNumber: number): string => {
-    let fetchUrl = '';
-    if (isGenre(slug)) {
-        const genreId = getGenreId(slug);
-        return fetchUrl = `${baseUrl}/discover/movie?with_genres=${genreId}&page=${pageNumber}&api_key=${api_key}`
-    } else {
-        return fetchUrl = `${baseUrl}/movie/${slug}?page=${pageNumber}&api_key=${api_key}`
+export const getFetchUrl = (slug: string, pageNumber: number, selectedItem?: string): string => {
+    if (selectedItem) {
+        let movieOrPerson: string = '';
+        if (selectedItem === '1')
+            movieOrPerson = 'movie';
+        else
+            movieOrPerson = 'person';
+        return `${baseUrl}/search/${movieOrPerson}?query=${slug}&include_adult=false&language=en-US&page=${pageNumber}&api_key=${api_key}`;
+    }
+    else {
+        let fetchUrl = '';
+        if (isGenre(slug)) {
+            const genreId = getGenreId(slug);
+            return fetchUrl = `${baseUrl}/discover/movie?with_genres=${genreId}&page=${pageNumber}&api_key=${api_key}`
+        } else {
+            return fetchUrl = `${baseUrl}/movie/${slug}?page=${pageNumber}&api_key=${api_key}`
+        }
     }
 }
 
@@ -107,4 +118,13 @@ export const setIcon = (index: number) => {
         case 12:
             return <CloseIcon fontSize="small" className="text-yellow-500" />
     }
+}
+
+// -------------------------------------------------------------------
+
+export const isExistPoster = (arr: ActorType[] | MovieType[]): boolean => {
+    for (let i = 0; i < arr.length; i++)
+        if ((arr[i] as MovieType).poster_path || (arr[i] as ActorType).profile_path)
+            return true;
+    return false;
 }

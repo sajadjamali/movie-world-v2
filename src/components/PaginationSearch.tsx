@@ -4,7 +4,7 @@ import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import MoviesList from "@/components/MoviesList";
 import { api_key, baseUrl } from "@/services/api";
-import { convertToPascalCase } from '@/utils';
+import { convertToPascalCase, isExistPoster, getFetchUrl } from '@/utils';
 import { useGetSearchedItems } from "@/services/search";
 import Actor from "./Actor";
 import Loading from "./Loading";
@@ -15,9 +15,7 @@ const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) =>
 
     const [pageNumber, setPageNumber] = useState<number>(1);
     const [selectedItem, setSelectedItem] = useState<string>('1');
-    let actorsUrl: string = `${baseUrl}/search/person?query=${searchValue}&include_adult=false&language=en-US&page=${pageNumber}&api_key=${api_key}`;
-    let moviesUrl: string = `${baseUrl}/search/movie?query=${searchValue}&include_adult=false&language=en-US&page=${pageNumber}&api_key=${api_key}`;
-    const fetchUrl = selectedItem === '1' ? moviesUrl : actorsUrl;
+    const fetchUrl = getFetchUrl(searchValue, pageNumber, selectedItem);
     const { data, isLoading, isError } = useGetSearchedItems(searchValue, selectedItem, fetchUrl, pageNumber);
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -33,7 +31,7 @@ const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) =>
         </div>
     )
 
-    console.log(data.results)
+    // pascal code ro check kon
 
     return (
         <>
@@ -44,18 +42,23 @@ const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) =>
                 </select>
             </div>
             {
-                selectedItem === '1' ?
-                    <MoviesList title={`${convertToPascalCase(`Searched term: ${searchValue}`)}`} movies={data.results} />
-                    :
-                    <div className="px-3 grid grid-cols-2 min-[400px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5 md:gap-5 justify-items-center gap-3">
-                        {
-                            data.results.map((actor: ActorType) => (
-                                actor.profile_path &&
-                                <Actor key={actor.id} actor={actor} />
-                            ))
-                        }
-                    </div>
+                isExistPoster(data.results) ? (
+                    selectedItem === '1' ? (
+                        <MoviesList title={`${convertToPascalCase(`Searched term: ${searchValue}`)}`} movies={data.results} />
+                    ) : (
+                        <div className="px-3 text-white mt-10 sm:mt-20 grid grid-cols-2 min-[400px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-9 md:gap-5 justify-items-center gap-3">
+                            {
+                                data.results.map((actor: ActorType) => (
+                                    actor.profile_path && <Actor key={actor.id} actor={actor} />
+                                ))
+                            }
+                        </div>
+                    )
+                ) : (
+                    <p className="text-center text-rose-500 text-xl my-20">Unfortunately, there is no information on this page</p>
+                )
             }
+
             <div className="flex justify-center text-white my-10">
                 <Pagination
                     color="secondary"

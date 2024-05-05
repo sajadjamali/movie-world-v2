@@ -56,3 +56,12 @@ export function useGetPaginationMovies(slug: string, fetchUrl: string, pageNumbe
     });
     return { data, isLoading, isError }
 }
+
+export function useGetSearchedItems(slug: string, selectedItem: string, fetchUrl: string, pageNumber: number) {
+    const moviesOrActors = selectedItem === '1' ? 'movies' : 'actors';
+    const { data, isLoading, isError } = useQuery({
+        queryKey: [`searchedTerm: ${slug} selectedItem: ${moviesOrActors} - pageNumber: ${pageNumber}`],
+        queryFn: async () => await fetcherFunc(fetchUrl)
+    });
+    return { data, isLoading, isError }
+}

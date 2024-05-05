@@ -1,7 +1,5 @@
-import { Metadata } from 'next';
-import Movie from '@/components/Movie';
-import { getSearchedMovies } from '@/services/search';
-import { redirect } from 'next/navigation';
+import PaginationSearch from '@/components/PaginationSearch';
+import type { Metadata } from 'next';
 
 export async function generateMetadata({ searchParams }: {
     searchParams?: { [key: string]: string | string[] | undefined }
@@ -9,7 +7,7 @@ export async function generateMetadata({ searchParams }: {
 
     return {
         title: `search for ${searchParams?.s}`,
-        description: `search for ${searchParams?.s}`
+        description: `search | ${searchParams?.s}`
     }
 }
 
@@ -17,13 +15,11 @@ const Page = async ({ searchParams }:
     {
         searchParams?: { [key: string]: string | string[] | undefined }
     }) => {
- 
-    // const searchedMovies = await getSearchedMovies(searchParams?.s as string)
-    // if (!searchedMovies.results.length || !searchParams?.s) return <div className='mt-10'>There are no items</div>
-    // console.log(searchedMovies)
 
     return (
-        <div className='mt-10'>search</div>
+        <div className='mt-16'>
+            <PaginationSearch searchValue={`${searchParams?.s}`} />
+        </div>
     )
 }
 

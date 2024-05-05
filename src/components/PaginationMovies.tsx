@@ -14,7 +14,7 @@ const PaginationMovies: React.FC<{ slug: string }> = ({ slug }) => {
     let fetchUrl: string = getFetchUrl(slug, pageNumber)
     const { data, isLoading, isError } = useGetPaginationMovies(slug, fetchUrl, pageNumber);
 
-    const handleChange = (event: unknown, value: number) => {
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPageNumber(value);
     };
 

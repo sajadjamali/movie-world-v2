@@ -1,8 +1,8 @@
-import { api_key, baseUrl } from "../api"
+import { useQuery } from "@tanstack/react-query";
 
 const fetcherFunc = async (url: string) => {
     try {
-        const res = await fetch(url, {cache: 'no-store'})
+        const res = await fetch(url, { cache: 'no-store' })
         if (!res.ok) {
             throw new Error('Failed to fetch data')
         }
@@ -12,7 +12,10 @@ const fetcherFunc = async (url: string) => {
     }
 }
 
-export async function getSearchedMovies(searchParam: string) {
-    const actor = await fetcherFunc(`${baseUrl}/search/movie?query=${searchParam}&include_adult=false&language=en-US&page=1&api_key=${api_key}`)
-    return actor;
+export function useGetSearchedItems(slug: string, selectedItem: string, fetchUrl: string, pageNumber: number) {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: [`searchedTerm: ${slug} selectedItem: ${selectedItem} - pageNumber: ${pageNumber}`],
+        queryFn: async () => await fetcherFunc(fetchUrl)
+    });
+    return { data, isLoading, isError }
 }

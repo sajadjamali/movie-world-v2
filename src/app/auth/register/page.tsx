@@ -1,7 +1,7 @@
 'use client'
 import { register as registerUser } from '@/services/auth';
 import { toast } from 'react-toastify';
-import '../../../styles/authForm.css';
+import '@/styles/authForm.css';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { IRegisterInfo } from '@/types/auth';
 import { useState } from 'react';

@@ -3,22 +3,29 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import Link from 'next/link';
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
 const SearchBox: React.FC = () => {
 
+    const router = useRouter();
     const [open, setOpen] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>('');
 
-    const searhHandlerWithEnter = (event:any) => {
-        console.log(event)
-        if (searchValue.trim())
-            redirect(`/search?s=${searchValue.trim()}`)
+    const reset = () => {
+        setOpen(false);
+        setSearchValue('');
+    }
+
+    const searhHandlerWithEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (searchValue.trim() && event.key === 'Enter') {
+            reset();
+            router.push(`/search?s=${searchValue.trim()}`)
+        }
     }
 
     return (
         <>
-            <Button onClick={() => setOpen(true)}><PageviewIcon sx={{ fontSize: '50px' }} fontSize='large' className='text-rose-600 hover:text-blue-600' /></Button>
+            <Button disabled={open ? true : false} onClick={(e) => { setSearchValue(''); setOpen(true) }}><PageviewIcon sx={{ fontSize: '50px' }} fontSize='large' className='text-rose-600 hover:text-blue-600' /></Button >
             <Modal
                 open={open}
                 onClose={() => setOpen(false)}
@@ -27,11 +34,11 @@ const SearchBox: React.FC = () => {
                     <p className='text-rose-500 text-center'>Enter the name of the desired movie or actor</p>
                     <div className="search flex flex-col items-center mt-5">
                         <div>
-                            <input autoComplete='on' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} onKeyDown={searhHandlerWithEnter} className='cursor-pointer' placeholder="search..." />
+                            <input onKeyDown={searhHandlerWithEnter} autoComplete='on' value={searchValue} onChange={(e) => setSearchValue(e.target.value)} className='cursor-pointer' placeholder="search..." />
                         </div>
                         {
                             searchValue.trim() &&
-                            <Link onClick={() => setOpen(false)} href={`/search?s=${searchValue.trim()}`} className='text-white mt-7 bg-green-600 w-32 py-1 text-center rounded-md'>Go</Link>
+                            <Link onClick={reset} href={`/search?s=${searchValue.trim()}`} className='text-white mt-7 bg-green-600 w-32 py-1 text-center rounded-md'>Go</Link>
                         }
                     </div>
                 </div>

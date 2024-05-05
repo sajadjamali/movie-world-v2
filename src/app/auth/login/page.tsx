@@ -1,8 +1,8 @@
 'use client'
 import { login } from '@/services/auth';
 import { toast } from 'react-toastify';
-import '../../../styles/authForm.css';
-import { useForm, SubmitHandler } from "react-hook-form"
+import '@/styles/authForm.css';
+import { useForm, SubmitHandler } from "react-hook-form";
 import { ILoginInfo } from '@/types/auth';
 import { useState } from 'react';
 import Link from 'next/link';

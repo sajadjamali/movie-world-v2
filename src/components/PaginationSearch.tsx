@@ -3,12 +3,11 @@ import React, { useState } from "react";
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import MoviesList from "@/components/MoviesList";
-import { api_key, baseUrl } from "@/services/api";
 import { convertToPascalCase, isExistPoster, getFetchUrl } from '@/utils';
 import { useGetSearchedItems } from "@/services/search";
 import Actor from "./Actor";
 import Loading from "./Loading";
-import '@/styles/select.css';
+import '@/styles/selectBox.css';
 import { ActorType } from "@/types";
 
 const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) => {

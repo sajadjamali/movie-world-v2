@@ -16,6 +16,8 @@ const Page = async ({ searchParams }:
         searchParams?: { [key: string]: string | string[] | undefined }
     }) => {
 
+        console.log('hiiiiii')
+
     return (
         <div className='mt-16'>
             <PaginationSearch searchValue={`${searchParams?.s}`} />

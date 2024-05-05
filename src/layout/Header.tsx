@@ -18,7 +18,9 @@ const Header: React.FC = () => {
         <div className="bg-gray-950 w-full fixed top-0 z-50 pb-1 pt-2 ps-2 min-[350px]:px-5 lg:p-0 flex items-center justify-between lg:justify-around">
             <div className='flex items-center space-x-2'>
                 <Profile />
-                <SearchBox />
+                <div className='hidden lg:block'>
+                    <SearchBox closeMenu={() => { }} />
+                </div>
             </div>
             <Image
                 className="w-auto lg:w-40"

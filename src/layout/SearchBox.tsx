@@ -5,13 +5,18 @@ import PageviewIcon from '@mui/icons-material/Pageview';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-const SearchBox: React.FC = () => {
+interface SearchBoxProps {
+    closeMenu: () => void;
+}
+
+const SearchBox: React.FC<SearchBoxProps> = ({ closeMenu }) => {
 
     const router = useRouter();
     const [open, setOpen] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>('');
 
     const reset = () => {
+        closeMenu();
         setOpen(false);
         setSearchValue('');
     }

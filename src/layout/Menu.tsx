@@ -18,6 +18,7 @@ import { setIcon } from '@/utils';
 import { LinkType } from '@/types';
 import { useMainContext } from '@/context/MainContex';
 import LogoutIcon from '@mui/icons-material/Logout';
+import SearchBox from './SearchBox';
 
 const Menu: React.FC = () => {
 
@@ -60,14 +61,16 @@ const Menu: React.FC = () => {
         },
       }}
     >
-      <div className='flex justify-center items-center mt-3'>
+      <div className='flex justify-center items-center space-x-2 mt-3'>
         <Image
           src="/assets/imgs/logo.png"
           width={150}
           height={1}
           alt="not found"
         />
-        <Button onClick={() => setIsOpen(false)}><CloseIcon fontSize='large' id="closeIcon" className="text-white hover:text-red-500 border-2 p-1 rounded-full border-yellow-500" /></Button>
+        <SearchBox closeMenu={handleCloseMenu} />
+        <Button onClick={() => setIsOpen(false)}><CloseIcon fontSize='large' id="closeIcon"
+          className="text-white hover:text-red-500 border-2 p-1 rounded-full border-yellow-500" /></Button>
       </div>
       <ul>
         {links.map((link: LinkType, index: number) => (

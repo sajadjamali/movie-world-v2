@@ -4,7 +4,6 @@ import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import MoviesList from "@/components/MoviesList";
 import { isExistPoster, getFetchUrl } from '@/utils';
-// import { useGetSearchedItems } from "@/services/search";
 import { useGetSearchedItems } from "@/services/dataFeching";
 import Actor from "./Actor";
 import Loading from "./Loading";
@@ -47,18 +46,18 @@ const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) =>
                     ) : (
                         <>
                             <p className="text-white text-2xl text-center my-10">Searched text: <span className="text-rose-500">{searchValue}</span></p>
-                            <div className="px-3 text-white grid grid-cols-2 min-[400px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-9 md:gap-5 justify-items-center gap-3">
-                                {
-                                    data.results.map((actor: ActorType) => (
-                                        actor.profile_path && <Actor key={actor.id} actor={actor} />
-                                    ))
-                                }
+                            <div className="flex justify-center">
+                                <div className="px-5 md:w-10/12 mx-auto text-white grid grid-cols-2 min-[400px]:grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 justify-items-center gap-4">
+                                    {
+                                        data.results.map((actor: ActorType) => (
+                                            actor.profile_path && <Actor key={actor.id} actor={actor} />
+                                        ))
+                                    }
+                                </div>
                             </div>
                         </>
                     )
-                ) : (
-                    <p className="text-center text-rose-500 text-xl my-20">there is no information on this pagination page</p>
-                )
+                ) : <p className="text-center text-rose-500 text-xl my-20">there is no information on this pagination page</p>
             }
 
             <div className="flex justify-center text-white my-10">

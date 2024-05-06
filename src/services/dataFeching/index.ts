@@ -51,7 +51,7 @@ export function useGetActorMovies(actorID: number, pageNumber: number) {
 
 export function useGetPaginationMovies(slug: string, fetchUrl: string, pageNumber: number) {
     const { data, isLoading, isError } = useQuery({
-        queryKey: [`category: ${slug} page number: ${pageNumber}`],
+        queryKey: [`${slug} - page number: ${pageNumber}`],
         queryFn: async () => await fetcherFunc(fetchUrl)
     });
     return { data, isLoading, isError }

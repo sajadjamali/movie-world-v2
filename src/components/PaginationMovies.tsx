@@ -7,6 +7,7 @@ import { getFetchUrl } from "@/utils";
 import { convertToPascalCase } from '@/utils';
 import { useGetPaginationMovies } from "@/services/dataFeching";
 import Loading from "./Loading";
+import Error from "@/components/Error";
 
 const PaginationMovies: React.FC<{ slug: string }> = ({ slug }) => {
 
@@ -19,7 +20,7 @@ const PaginationMovies: React.FC<{ slug: string }> = ({ slug }) => {
     };
 
     if (isLoading) return <Loading />
-    if (isError) return <p className="my-10 text-white text-center text-xl">error😑</p>
+    if (isError) return <Error />
 
     return (
         <>

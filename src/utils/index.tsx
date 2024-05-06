@@ -128,3 +128,12 @@ export const isExistPoster = (arr: ActorType[] | MovieType[]): boolean => {
             return true;
     return false;
 }
+
+// -------------------------------------------------------------------
+
+export const isNotFound = (params: string[]): boolean => {
+    if (params.length !== 2 || (params[0] !== 'category' && params[0] !== 'genre'))
+        return true;
+    else
+        return false;
+}

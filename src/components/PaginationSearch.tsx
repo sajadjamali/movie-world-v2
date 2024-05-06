@@ -9,6 +9,7 @@ import Actor from "./Actor";
 import Loading from "./Loading";
 import '@/styles/selectBox.css';
 import { ActorType } from "@/types";
+import Error from "@/components/Error";
 
 const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) => {
 
@@ -23,7 +24,7 @@ const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) =>
     }
 
     if (isLoading) return <Loading />
-    if (isError) return <p className="my-10 text-white text-center text-xl">error😑</p>
+    if (isError) return <Error />
     if (!data.results.length) return (
         <div className="text-xl flex flex-col items-center space-y-10 text-white">
             <p>Searched text: <span className="text-rose-500">{searchValue}</span></p>

@@ -10,9 +10,9 @@ import { useGetActorMovies } from "@/services/dataFeching";
 const ActorMovies: React.FC<{ actorName: string, actorID: number }> = ({ actorName, actorID }) => {
 
     const [pageNumber, setPageNumber] = useState<number>(1);
-    const { data, isLoading, isError } = useGetActorMovies(actorID, pageNumber);
+    const { data, isPending, isError } = useGetActorMovies(actorID, pageNumber);
 
-    if (isLoading) return <Loading />
+    if (isPending) return <Loading />
     if (isError) return <p className="my-10 text-white text-center text-xl">error😑</p>
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {

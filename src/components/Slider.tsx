@@ -9,24 +9,24 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../styles/slider.css';
 import { useState } from "react";
-import { imgBaseUrl } from '@/services/api';
 import Link from 'next/link';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 import MySkeleton from './Loading';
 import { getFirstFifteenWords } from '@/utils';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { useGetSwipperMovies } from '@/services/dataFeching';
+import { baseUrl, api_key, imgBaseUrl } from '@/services/api';
 
 const Slider: React.FC = () => {
 
     const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0);
-    const { data, isLoading, isError } = useGetSwipperMovies('https://api.themoviedb.org/3/movie/top_rated?page=1&api_key=a9a8b69054a2ff955dc152216931af1a');
+    const { data, isPending, isError } = useGetSwipperMovies(`${baseUrl}/movie/top_rated?page=1&api_key=${api_key}`);
 
     const handleSlideChange = (swiper: any) => {
         setActiveSlideIndex(swiper.realIndex);
     };
 
-    if (isLoading) return <MySkeleton />
+    if (isPending) return <MySkeleton />
     if (isError) return <p className='text-center text-3xl font-bold'>Failed to fetch data</p>;
 
     return (
@@ -34,7 +34,7 @@ const Slider: React.FC = () => {
             <section className='hidden lg:block lg:w-6/12 h-full'
                 style={{
                     backgroundRepeat: "no-repeat",
-                    backgroundImage: `url(https://image.tmdb.org/t/p/w500${data?.results[activeSlideIndex].backdrop_path})`,
+                    backgroundImage: `url(${imgBaseUrl}${data?.results[activeSlideIndex].backdrop_path})`,
                     backgroundSize: "cover",
                 }}
             >

@@ -17,13 +17,13 @@ const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) =>
     const [selectedItem, setSelectedItem] = useState<string>('1');
 
     const fetchUrl = getFetchUrl(searchValue, pageNumber, selectedItem);
-    const { data, isLoading, isError } = useGetSearchedItems(searchValue, selectedItem, fetchUrl, pageNumber);
+    const { data, isPending, isError } = useGetSearchedItems(searchValue, selectedItem, fetchUrl, pageNumber);
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPageNumber(value);
     }
 
-    if (isLoading) return <Loading />
+    if (isPending) return <Loading />
     if (isError) return <Error />
     if (!data.results.length) return (
         <div className="text-xl flex flex-col items-center space-y-10 text-white">

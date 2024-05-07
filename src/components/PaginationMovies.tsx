@@ -13,13 +13,13 @@ const PaginationMovies: React.FC<{ slug: string }> = ({ slug }) => {
 
     const [pageNumber, setPageNumber] = useState<number>(1);
     let fetchUrl: string = getFetchUrl(slug, pageNumber)
-    const { data, isLoading, isError } = useGetPaginationMovies(slug, fetchUrl, pageNumber);
+    const { data, isPending, isError } = useGetPaginationMovies(slug, fetchUrl, pageNumber);
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPageNumber(value);
     };
 
-    if (isLoading) return <Loading />
+    if (isPending) return <Loading />
     if (isError) return <Error />
 
     return (

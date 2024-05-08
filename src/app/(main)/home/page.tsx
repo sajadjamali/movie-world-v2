@@ -2,7 +2,6 @@ import MySwiper from "@/components/Slider";
 import CategorySection from "@/components/CategorySection";
 import MyDivider from "@/components/muiComponents/MyDivider";
 import { getMovies } from "@/services/dataFeching";
-import { Suspense } from 'react';
 
 const Page = async () => {
 
@@ -13,26 +12,16 @@ const Page = async () => {
 
     return (
         <div className="pb-8">
-            <Suspense fallback={<p>Loading...</p>}>
-                <MySwiper />
-            </Suspense>
+            <MySwiper />
             <main className="pt-5">
                 <MyDivider label="Now Playing" src="/assets/imgs/nowPlaying.png" />
-                <Suspense fallback={<p>Loading...</p>}>
-                    <CategorySection effect="" sectionName="Now Playing" href="/category/now_playing" movies={nowPlaying.results} />
-                </Suspense>
+                <CategorySection effect="" sectionName="Now Playing" href="/category/now_playing" movies={nowPlaying.results} />
                 <MyDivider label="Popular" src="/assets/imgs/popular.png" />
-                <Suspense fallback={<p>Loading...</p>}>
-                    <CategorySection effect="fade-right" sectionName="Popular" href="/category/popular" movies={popular.results} />
-                </Suspense>
+                <CategorySection effect="fade-right" sectionName="Popular" href="/category/popular" movies={popular.results} />
                 <MyDivider label="Top Rated" src="/assets/imgs/topRated.png" />
-                <Suspense fallback={<p>Loading...</p>}>
-                    <CategorySection effect="flip-left" sectionName="Top Rated" href="/category/top_rated" movies={topRated.results} />
-                </Suspense>
+                <CategorySection effect="flip-left" sectionName="Top Rated" href="/category/top_rated" movies={topRated.results} />
                 <MyDivider label="Upcoming" src="/assets/imgs/upcoming.png" />
-                <Suspense fallback={<p>Loading...</p>}>
-                    <CategorySection effect="zoom-in-up" sectionName="Upcoming" href="/category/upcoming" movies={upcoming.results} />
-                </Suspense>
+                <CategorySection effect="zoom-in-up" sectionName="Upcoming" href="/category/upcoming" movies={upcoming.results} />
             </main>
         </div>
     );

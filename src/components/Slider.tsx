@@ -11,7 +11,8 @@ import '../styles/slider.css';
 import { useState } from "react";
 import Link from 'next/link';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
-import MySkeleton from './Loading';
+import Loading from './Loading';
+import Error from './Error';
 import { getFirstFifteenWords } from '@/utils';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { useGetSwipperMovies } from '@/services/dataFeching';
@@ -26,8 +27,8 @@ const Slider: React.FC = () => {
         setActiveSlideIndex(swiper.realIndex);
     };
 
-    if (isPending) return <MySkeleton />
-    if (isError) return <p className='text-center text-3xl font-bold'>Failed to fetch data</p>;
+    if (isPending) return <Loading />
+    if (isError) return <Error />
 
     return (
         <div style={{ height: "470px" }} className="flex justify-center items-center bg-black pt-7 px-4 lg:px-0 lg:pt-0">

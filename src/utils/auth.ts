@@ -1,9 +1,4 @@
-interface IData {
-    name?: string;
-    password: string;
-    phone?: string;
-    email: string;
-}
+import { IAuthData as IData } from "@/types/auth";
 
 export const trimedData = (data: IData): IData => {
     for (const key of Object.keys(data) as Array<keyof IData>) {

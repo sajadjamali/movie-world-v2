@@ -90,7 +90,7 @@ const Menu: React.FC = () => {
         {
           loggedUser.name &&
           <li className='text-rose-500 bg-slate-950 hover:bg-slate-900'>
-            <button onClick={() => { handleLogOut(); setIsOpen(false) }} className='flex justify-center space-x-1 w-full py-3'>
+            <button onClick={() => { setIsOpen(false); handleLogOut() }} className='flex justify-center space-x-1 w-full py-3'>
               <LogoutIcon className='text-yellow-500' />
               <p className='text-lg hover:text-yellow-500'>Log Out</p>
             </button>

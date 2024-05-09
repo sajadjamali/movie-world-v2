@@ -5,7 +5,7 @@ import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import "../styles/actorInformation.css";
 import MoviesList from "./MoviesList";
-import { useGetActorMovies } from "@/services/dataFeching";
+import { useGetActorMovies } from "@/hooks";
 
 const ActorMovies: React.FC<{ actorName: string, actorID: number }> = ({ actorName, actorID }) => {
 

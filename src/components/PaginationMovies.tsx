@@ -5,7 +5,7 @@ import PaginationItem from '@mui/material/PaginationItem';
 import MoviesList from "@/components/MoviesList";
 import { getFetchUrl } from "@/utils";
 import { convertToPascalCase } from '@/utils';
-import { useGetPaginationMovies } from "@/services/dataFeching";
+import { useGetPaginationMovies } from "@/hooks";
 import Loading from "./Loading";
 import Error from "@/components/Error";
 

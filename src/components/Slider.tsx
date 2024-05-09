@@ -15,7 +15,7 @@ import Loading from './Loading';
 import Error from './Error';
 import { getFirstFifteenWords } from '@/utils';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import { useGetSwipperMovies } from '@/services/dataFeching';
+import { useGetSwipperMovies } from '@/hooks';
 import { baseUrl, api_key, imgBaseUrl } from '@/services/api';
 
 const Slider: React.FC = () => {

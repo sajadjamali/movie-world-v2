@@ -4,7 +4,7 @@ import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import MoviesList from "@/components/MoviesList";
 import { isExistPoster, getFetchUrl } from '@/utils';
-import { useGetSearchedItems } from "@/services/dataFeching";
+import { useGetSearchedItems } from "@/hooks";
 import Actor from "./Actor";
 import Loading from "./Loading";
 import '@/styles/selectBox.css';

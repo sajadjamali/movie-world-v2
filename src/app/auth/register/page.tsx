@@ -9,8 +9,13 @@ import Link from 'next/link';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { trimedData } from '@/utils/auth';
+import { isLoggedUser } from '@/utils/auth';
 
 const Page = () => {
+
+    if (isLoggedUser()) {
+        window.location.href = '/home';
+    }
 
     const { register, formState: { errors }, handleSubmit } = useForm<IRegisterInfo>();
     const [errorMessage, setErrorMssage] = useState<string>('');

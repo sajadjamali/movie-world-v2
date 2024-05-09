@@ -10,23 +10,22 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { expiresDate } from '@/utils/auth';
 import { trimedData } from '@/utils/auth';
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm<ILoginInfo>();
     const [errorMessage, setErrorMssage] = useState<string>('');
     const [showPassword, setShowPassword] = useState<boolean>(false);
+    const router = useRouter();
 
     const onSubmit: SubmitHandler<ILoginInfo> = async (data) => {
         try {
             setErrorMssage('');
             const res = await login(trimedData(data));
-            document.cookie = `isLogged=true; Path=/; expires=${expiresDate()}`;
             toast.success('Login success');
-            if (document.referrer)
-                window.location.href = document.referrer;
-            else
-                window.location.href = '/home';
+            document.cookie = `isLogged=true; Path=/; expires=${expiresDate()}`;
+            router.back();
         } catch (error: any) {
             setErrorMssage(error.message);
             console.log("error -->", error);

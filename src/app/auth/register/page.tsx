@@ -13,9 +13,9 @@ import { isLoggedUser } from '@/utils/auth';
 
 const Page = () => {
 
-    if (isLoggedUser()) {
-        window.location.href = '/home';
-    }
+    // if (isLoggedUser()) {
+    //     window.location.href = '/home';
+    // }
 
     const { register, formState: { errors }, handleSubmit } = useForm<IRegisterInfo>();
     const [errorMessage, setErrorMssage] = useState<string>('');

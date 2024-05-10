@@ -1,13 +1,12 @@
 {
-  "name": "next-test",
+  "name": "movie-world",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "prisma generate"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -26,7 +25,6 @@
     "react-hook-form": "^7.51.3",
     "react-particles": "^2.12.2",
     "react-toastify": "^10.0.5",
-    "sqlite": "^5.1.1",
     "swiper": "^11.0.7",
     "tsparticles-slim": "^2.12.0"
   },

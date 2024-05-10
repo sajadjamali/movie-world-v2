@@ -6,6 +6,6 @@ export async function GET(request: Request) {
         });
 
     } catch (error) {
-        return Response.json({ message: 'Internal server error' }, { status: 500 });
+        return Response.json({ message: 'Internal server error', error }, { status: 500 });
     }
 }

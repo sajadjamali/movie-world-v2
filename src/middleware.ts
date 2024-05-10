@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
-
     const requestedRoute = config.matcher.find(route => request.url.includes(route));
     switch (requestedRoute) {
         case '/search':

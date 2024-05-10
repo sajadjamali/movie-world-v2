@@ -4,3 +4,4 @@ import { IAuthData } from "@/types/auth";
 export const register = (data: IAuthData) => postApi('auth/register', data);
 export const login = (data: IAuthData) => postApi('auth/login', data);
 export const logOut = () => getApi('auth/logOut');
+export const getLoggedUser = () => getApi('getLoggedUser');

@@ -2,14 +2,15 @@
 import { register as registerUser } from '@/services/auth';
 import { toast } from 'react-toastify';
 import '@/styles/authForm.css';
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form";
 import { IRegisterInfo } from '@/types/auth';
 import { useState } from 'react';
 import Link from 'next/link';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { trimedData } from '@/utils/auth';
-import { isLoggedUser } from '@/utils/auth';
+import HourglassTopIcon from '@mui/icons-material/HourglassTop';
+// import { isLoggedUser } from '@/utils/auth';
 
 const Page = () => {
 
@@ -20,11 +21,15 @@ const Page = () => {
     const { register, formState: { errors }, handleSubmit } = useForm<IRegisterInfo>();
     const [errorMessage, setErrorMssage] = useState<string>('');
     const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
 
     const onSubmit: SubmitHandler<IRegisterInfo> = async (data) => {
         try {
             setErrorMssage('');
-            const res = await registerUser(trimedData(data));
+            setIsLoading(true);
+            await registerUser(trimedData(data));
+            setIsLoading(false);
             toast.success('Register success');
             window.location.href = '/auth/login';
         } catch (error: any) {
@@ -34,11 +39,11 @@ const Page = () => {
     }
 
     return (
-        <div id="authPage" className='flex justify-center items-center overflow-hidden h-screen'>
-            <section className="auth-box relative bg-slate-900 p-10 rounded-lg w-11/12 px-10 min-[500px]:w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
+        <div id="authPage" className='flex justify-center items-center h-screen overflow-hidden'>
+            <section className="auth-box bg-slate-900 p-10 rounded-lg w-11/12 px-10 min-[500px]:w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
                 <Link href="/home" className='bg-yellow-500 rounded-md mx-auto w-20 block text-center mb-3 hover:bg-rose-600 hover:text-white'>Home</Link>
                 <h2 className="text-red-600 bg-slate-950 font-bold text-center border-2 border-yellow-300 rounded-md py-2">Register</h2>
-                <form onSubmit={handleSubmit(onSubmit)} className="font-bold mt-12">
+                <form onSubmit={handleSubmit(onSubmit)} className="mt-12">
                     <div className="user-box">
                         <label className='text-sky-500'>name</label>
                         <input {...register('name', {
@@ -110,6 +115,14 @@ const Page = () => {
                             Register
                         </a>
                     </button>
+                    {
+                        isLoading && (
+                            <div className='flex justify-center items-center space-x-1 mt-6'>
+                                <HourglassTopIcon fontSize='large' className='text-rose-700 animate-spin' />
+                                <p className='text-lg text-yellow-500 text-center'>please wait...</p>
+                            </div>
+                        )
+                    }
                     {
                         errorMessage && (
                             <p className='text-red-500 font-normal mt-7 text-center'>{errorMessage}</p>

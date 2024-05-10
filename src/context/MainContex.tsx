@@ -1,7 +1,7 @@
 'use client'
 import { createContext, useContext, useState, useEffect } from "react";
 import { ILoggedUser as UserType } from "@/types/auth";
-import { getLoggedUser } from '@/services/getLoggedUser';
+import { getLoggedUser } from '@/services/auth';
 import { logOut } from "@/services/auth";
 import { toast } from "react-toastify";
 import { isLoggedUser } from "@/utils/auth";

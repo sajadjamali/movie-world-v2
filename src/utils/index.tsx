@@ -10,7 +10,7 @@ import AnimationIcon from '@mui/icons-material/Animation';
 import InsertChartIcon from '@mui/icons-material/InsertChart';
 import BookIcon from '@mui/icons-material/Book';
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
-import { baseUrl} from "@/services/api";
+import { baseUrl } from "@/services/api";
 import { ActorType, MovieType } from "@/types";
 
 const api_key = process.env.NEXT_PUBLIC_API_KEY;
@@ -134,7 +134,8 @@ export const isExistPoster = (arr: ActorType[] | MovieType[]): boolean => {
 // -------------------------------------------------------------------
 
 export const isNotFound = (params: string[]): boolean => {
-    if (params.length !== 2 || (params[0] !== 'category' && params[0] !== 'genre'))
+    const isGenre = genres.some(genre => genre.name === params[1])
+    if (params.length !== 2 || !isGenre || (params[0] !== 'category' && params[0] !== 'genre'))
         return true;
     else
         return false;

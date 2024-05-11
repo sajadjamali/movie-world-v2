@@ -1,24 +1,23 @@
 "use client";
-import React from 'react';
-import Box from '@mui/material/Box';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import Image from 'next/image';
 import Link from 'next/link';
-import MyAccordion from '@/components/muiComponents/MyAccordion';
-import { useState, useEffect } from 'react';
 import '../styles/header.css';
-import { links } from '@/constant';
-import { usePathname } from 'next/navigation';
-import { breakpoints } from '@/constant';
+import Image from 'next/image';
 import { setIcon } from '@/utils';
 import { LinkType } from '@/types';
-import { useMainContext } from '@/context/MainContex';
-import LogoutIcon from '@mui/icons-material/Logout';
+import { links } from '@/constant';
+import Box from '@mui/material/Box';
 import SearchBox from './SearchBox';
+import { breakpoints } from '@/constant';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import { usePathname } from 'next/navigation';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import React, { useState, useEffect } from 'react';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useMainContext } from '@/context/MainContex';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import MyAccordion from '@/components/muiComponents/MyAccordion';
 
 const Menu: React.FC = () => {
 
@@ -48,17 +47,17 @@ const Menu: React.FC = () => {
         backgroundColor: '#10151f',
         height: '100vh',
         [breakpoints.custom]: {
-          maxWidth: '80vw',
+          maxWidth: '80vw'
         },
         [breakpoints.customXS]: {
-          maxWidth: '70vw',
+          maxWidth: '70vw'
         },
         [breakpoints.customSM]: {
-          maxWidth: '60vw',
+          maxWidth: '60vw'
         },
         [breakpoints.customMD]: {
-          maxWidth: '50vw',
-        },
+          maxWidth: '50vw'
+        }
       }}
     >
       <div className='flex justify-center items-center space-x-2 mt-3'>
@@ -98,7 +97,7 @@ const Menu: React.FC = () => {
         }
       </ul>
       <Image
-        style={{ height: "49%" }}
+        style={{ height: 'calc(100vh - 470px)' }}
         src="/assets/imgs/backGround/backGround4.PNG"
         width={500}
         height={500}

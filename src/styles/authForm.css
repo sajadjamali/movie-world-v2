@@ -11,7 +11,7 @@
 
 @keyframes auth-box {
   from {
-    top: -500px;
+    top: -500px !important;
   }
 
   to {
@@ -29,7 +29,7 @@
 }
 
 .auth-box form button:disabled a {
-  color: gray !important;
+  color: gray;
 }
 
 .auth-box form button:disabled a:hover {

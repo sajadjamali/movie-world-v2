@@ -10,13 +10,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { trimedData } from '@/utils/auth';
 import HourglassTopIcon from '@mui/icons-material/HourglassTop';
-// import { isLoggedUser } from '@/utils/auth';
 
 const Page = () => {
-
-    // if (isLoggedUser()) {
-    //     window.location.href = '/home';
-    // }
 
     const { register, formState: { errors }, handleSubmit } = useForm<IRegisterInfo>();
     const [errorMessage, setErrorMssage] = useState<string>('');
@@ -39,7 +34,7 @@ const Page = () => {
     }
 
     return (
-        <div id="authPage" className='flex justify-center items-center h-screen overflow-hidden'>
+        <div id="authPage" className='flex justify-center items-center overflow-hidden h-screen'>
             <section className="auth-box bg-slate-900 p-10 rounded-lg w-11/12 px-10 min-[500px]:w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
                 <Link href="/home" className='bg-yellow-500 rounded-md mx-auto w-20 block text-center mb-3 hover:bg-rose-600 hover:text-white'>Home</Link>
                 <h2 className="text-red-600 bg-slate-950 font-bold text-center border-2 border-yellow-300 rounded-md py-2">Register</h2>

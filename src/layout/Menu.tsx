@@ -98,7 +98,7 @@ const Menu: React.FC = () => {
         }
       </ul>
       <Image
-        style={{ height: "45%" }}
+        style={{ height: "49%" }}
         src="/assets/imgs/backGround/backGround4.PNG"
         width={500}
         height={500}

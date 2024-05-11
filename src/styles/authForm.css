@@ -28,6 +28,15 @@
   background: transparent;
 }
 
+.auth-box form button:disabled a {
+  color: gray !important;
+}
+
+.auth-box form button:disabled a:hover {
+  background-color: transparent;
+  box-shadow: none;
+}
+
 .auth-box form button a {
   position: relative;
   display: inline-block;
@@ -39,7 +48,7 @@
   overflow: hidden;
   transition: .5s;
   margin-top: 40px;
-  letter-spacing: 4px
+  letter-spacing: 4px;
 }
 
 .auth-box button a:hover {

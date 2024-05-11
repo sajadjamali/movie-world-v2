@@ -16,7 +16,9 @@ import Error from './Error';
 import { getFirstFifteenWords } from '@/utils';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { useGetSwipperMovies } from '@/hooks';
-import { baseUrl, api_key, imgBaseUrl } from '@/services/api';
+import { baseUrl, imgBaseUrl } from '@/services/api';
+
+const api_key = process.env.NEXT_PUBLIC_API_KEY;
 
 const Slider: React.FC = () => {
 

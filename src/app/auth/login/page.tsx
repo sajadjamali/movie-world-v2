@@ -26,11 +26,11 @@ const Page = () => {
             setErrorMssage('');
             setIsLoading(true);
             await login(trimedData(data));
-            setIsLoading(false);
             toast.success('Login success');
             document.cookie = `isLogged=true; Path=/; expires=${expiresDate()}`;
             router.back();
         } catch (error: any) {
+            setIsLoading(false);
             setErrorMssage(error.message);
             console.log("error -->", error);
         }
@@ -78,7 +78,7 @@ const Page = () => {
                         }
                     </div>
                     <Link href="/auth/register" className='text-red-400 font-normal hover:text-sky-400'>Have you not registered?</Link>
-                    <button type="submit" className="flex w-full justify-center">
+                    <button disabled={isLoading} type="submit" className="flex w-full justify-center">
                         <a>
                             <span></span>
                             <span></span>

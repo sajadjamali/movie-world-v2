@@ -10,8 +10,10 @@ import AnimationIcon from '@mui/icons-material/Animation';
 import InsertChartIcon from '@mui/icons-material/InsertChart';
 import BookIcon from '@mui/icons-material/Book';
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
-import { baseUrl, api_key } from "@/services/api";
+import { baseUrl} from "@/services/api";
 import { ActorType, MovieType } from "@/types";
+
+const api_key = process.env.NEXT_PUBLIC_API_KEY;
 
 export const getGenreId = (genreName: string): number => {
     let genreId: number = 0;

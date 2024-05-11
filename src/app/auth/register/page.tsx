@@ -29,10 +29,10 @@ const Page = () => {
             setErrorMssage('');
             setIsLoading(true);
             await registerUser(trimedData(data));
-            setIsLoading(false);
             toast.success('Register success');
             window.location.href = '/auth/login';
         } catch (error: any) {
+            setIsLoading(false);
             setErrorMssage(error.message)
             console.log("error -->", error);
         }
@@ -106,7 +106,7 @@ const Page = () => {
                         }
                     </div>
                     <Link href="/auth/login" className='text-rose-600 font-normal hover:ring-rose-700 hover:text-yellow-400 ring-2 py-1 px-3 rounded-md ring-sky-300'>Sign In</Link>
-                    <button type="submit" className="flex w-full justify-center">
+                    <button disabled={isLoading} type="submit" className="flex w-full justify-center">
                         <a>
                             <span></span>
                             <span></span>

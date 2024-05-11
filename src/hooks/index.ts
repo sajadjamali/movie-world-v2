@@ -1,6 +1,8 @@
 import { fetcherFunc } from "@/services/dataFeching";
 import { useQuery } from "@tanstack/react-query";
-import { baseUrl, api_key } from "@/services/api";
+import { baseUrl } from "@/services/api";
+
+const api_key = process.env.NEXT_PUBLIC_API_KEY;
 
 export function useGetSwipperMovies(fetchUrl: string) {
     const { data, isPending, isError } = useQuery({

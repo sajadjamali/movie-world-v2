@@ -1,4 +1,6 @@
-import { baseUrl, api_key } from "../api";
+import { baseUrl } from "../api";
+
+const api_key = process.env.NEXT_PUBLIC_API_KEY;
 
 export const fetcherFunc = async (url: string) => {
     try {

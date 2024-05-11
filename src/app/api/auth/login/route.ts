@@ -1,10 +1,8 @@
-import { PrismaClient } from '@prisma/client'
+import prisma from '@/utils/prisma'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { type NextRequest } from 'next/server'
 import { expiresDate } from '@/utils/auth'
-
-const prisma = new PrismaClient();
 
 export async function POST(request: NextRequest) {
     try {

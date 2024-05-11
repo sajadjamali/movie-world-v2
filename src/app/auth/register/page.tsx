@@ -18,7 +18,6 @@ const Page = () => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-
     const onSubmit: SubmitHandler<IRegisterInfo> = async (data) => {
         try {
             setErrorMssage('');

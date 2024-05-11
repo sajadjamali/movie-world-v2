@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 import React, { useState } from 'react';
 import { IRegisterInfo } from '@/types/auth';
+import { useRouter } from 'next/navigation';
 import { trimedData, expiresDate } from '@/utils/auth';
 import { useForm, SubmitHandler } from "react-hook-form";
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -10,8 +11,11 @@ import HourglassTopIcon from '@mui/icons-material/HourglassTop';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { register as registerUser, login } from '@/services/auth';
 
+const styles = 'bg-yellow-500 rounded-md w-20 block text-center mb-3 hover:bg-rose-600 hover:text-white';
+
 const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previousPage }) => {
 
+    const router = useRouter();
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [errorMessage, setErrorMssage] = useState<string>('');
     const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -39,10 +43,13 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
     }
 
     return (
-        <section className="auth-box bg-slate-900 p-10 rounded-lg w-11/12 px-10 min-[500px]:w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
-            <Link href="/home" className='bg-yellow-500 rounded-md mx-auto w-20 block text-center mb-3 hover:bg-rose-600 hover:text-white'>Home</Link>
+        <section className="auth-box relative bg-slate-900 p-6 rounded-lg w-11/12 min-[500px]:w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
+            <div className='flex justify-center space-x-2'>
+                <Link href="/home" className={styles}>Home</Link>
+                <button onClick={() => router.back()} className={styles}>Back</button>
+            </div>
             <h2 className="text-red-600 bg-slate-950 font-bold text-center border-2 border-yellow-300 rounded-md py-2">{type}</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="mt-12">
+            <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
                 {
                     type === 'register' &&
                     <>

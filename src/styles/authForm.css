@@ -11,7 +11,7 @@
 
 @keyframes auth-box {
   from {
-    top: -500px !important;
+    top: -500px;
   }
 
   to {
@@ -20,7 +20,7 @@
 }
 
 .auth-box .user-box {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .auth-box .user-box input {

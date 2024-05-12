@@ -43,13 +43,13 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
     }
 
     return (
-        <section className="auth-box relative bg-slate-900 p-6 rounded-lg w-11/12 min-[500px]:w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
+        <section className="auth-box relative bg-slate-900 p-5 rounded-lg w-11/12 min-[500px]:w-10/12 sm:w-8/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
             <div className='flex justify-center space-x-2'>
                 <Link href="/home" className={styles}>Home</Link>
                 <button onClick={() => router.back()} className={styles}>Back</button>
             </div>
             <h2 className="text-red-600 bg-slate-950 font-bold text-center border-2 border-yellow-300 rounded-md py-2">{type}</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="mt-10 space-y-8">
+            <form onSubmit={handleSubmit(onSubmit)} className="mt-5 space-y-8">
                 {
                     type === 'register' &&
                     <>

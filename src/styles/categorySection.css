@@ -8,3 +8,21 @@
 .swiper-scrollbar-drag {
     background-color: rgb(10, 10, 204);
 }
+
+@keyframes custom-ping {
+    0% {
+        transform: scale(2);
+    }
+
+    50% {
+        transform: scale(2.3);
+    }
+
+    100% {
+        transform: scale(2);
+    }
+}
+
+.animate-ping-custom {
+    animation: custom-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}

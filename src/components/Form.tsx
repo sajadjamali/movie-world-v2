@@ -48,7 +48,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                 <Link href="/home" className={styles}>Home</Link>
                 <button onClick={() => router.back()} className={styles}>Back</button>
             </div>
-            <h2 className="text-rose-600 bg-zinc-950 text-xl text-center border-2 border-yellow-300 rounded-md py-2">{type}</h2>
+            <h2 className="text-rose-600 bg-zinc-900 text-xl text-center border-2 border-yellow-300 rounded-md py-2">{type}</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="mt-5 space-y-8">
                 {
                     type === 'register' &&

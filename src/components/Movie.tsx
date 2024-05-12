@@ -17,6 +17,7 @@ const Movie: React.FC<{ movie: MovieType, effect: string }> = ({ movie, effect }
                     <div className="ih-item square effect7">
                         <Link href={`/movieInformation/${movie.id}`}>
                             <Image
+                                className='h-96 w-80'
                                 alt={movie.title}
                                 width={250}
                                 height={250}

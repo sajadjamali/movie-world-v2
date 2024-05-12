@@ -15,7 +15,7 @@ const Header: React.FC = () => {
     const pathname = usePathname();
 
     return (
-        <div className="bg-gray-950 w-full fixed top-0 z-50 py-2 ps-2 min-[350px]:px-5 lg:p-0 flex items-center justify-between lg:justify-around">
+        <div className="bg-gray-950 w-full fixed top-0 z-50 py-2 ps-2 min-[350px]:px-5 flex items-center justify-between lg:justify-around">
             <div className='flex items-center space-x-2'>
                 <Profile />
                 <div className='hidden lg:block'>

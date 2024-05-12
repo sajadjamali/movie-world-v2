@@ -62,9 +62,10 @@ const Menu: React.FC = () => {
     >
       <div className='flex justify-center items-center space-x-2 mt-3'>
         <Image
+          className="h-10 w-32"
           src="/assets/imgs/logo.png"
-          width={150}
-          height={1}
+          width={100}
+          height={100}
           alt="not found"
         />
         <SearchBox closeMenu={handleCloseMenu} />
@@ -97,7 +98,7 @@ const Menu: React.FC = () => {
         }
       </ul>
       <Image
-        style={{ height: 'calc(100vh - 470px)' }}
+        style={{ height: 'calc(100vh - 453px)' }}
         src="/assets/imgs/backGround/backGround4.PNG"
         width={500}
         height={500}

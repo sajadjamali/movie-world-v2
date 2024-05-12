@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className='flex flex-col h-screen'>
       <MainContext>
         < Header />
-        <div className="mt-[69px] lg:mt-[86px]">
+        <div className="mt-[65px] lg:mt-[64px]">
           {children}
         </div>
         < Footer />

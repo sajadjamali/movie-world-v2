@@ -33,7 +33,7 @@ const MyDivider: React.FC<{ label: string, src: string }> = ({ label, src }) => 
                     paddingY: '1.25rem'
                 }}
                 label={label}
-                avatar={<Avatar src={src} alt="not found" />}
+                avatar={<Avatar src={`/assets/imgs/${src}`} alt="not found" />}
                 variant="outlined"
             />
         </Divider>

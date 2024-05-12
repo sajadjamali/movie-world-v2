@@ -11,7 +11,7 @@ import HourglassTopIcon from '@mui/icons-material/HourglassTop';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { register as registerUser, login } from '@/services/auth';
 
-const styles = 'bg-yellow-500 rounded-md w-20 block text-center mb-3 hover:bg-rose-600 hover:text-white';
+const styles = 'bg-yellow-500 rounded-md py-1 w-20 block text-center mb-3 hover:bg-rose-600 hover:text-white';
 
 const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previousPage }) => {
 
@@ -48,7 +48,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                 <Link href="/home" className={styles}>Home</Link>
                 <button onClick={() => router.back()} className={styles}>Back</button>
             </div>
-            <h2 className="text-red-600 bg-black font-bold text-center border-2 border-yellow-300 rounded-md py-2">{type}</h2>
+            <h2 className="text-rose-600 bg-zinc-950 text-xl text-center border-2 border-yellow-300 rounded-md py-2">{type}</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="mt-5 space-y-8">
                 {
                     type === 'register' &&
@@ -119,7 +119,8 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                 <div>
                     {
                         type === 'register' ?
-                            <Link href="/auth/login" className='text-rose-600 font-normal bg-slate-950 hover:ring-rose-700 hover:text-yellow-400 ring-2 py-1 px-3 rounded-md ring-sky-300'>Sign In</Link>
+                        <Link href="/auth/login" className={styles}>Sign In</Link>
+                            // <Link href="/auth/login" className='text-rose-600 font-normal bg-green-600 hover:ring-rose-700 hover:text-yellow-400 ring-2 py-1 px-3 rounded-md ring-sky-300'>Sign In</Link>
                             :
                             <Link href="/auth/register" className='text-red-400 font-normal hover:text-sky-400'>Have you not registered?</Link>
                     }

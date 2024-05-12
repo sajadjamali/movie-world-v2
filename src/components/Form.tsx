@@ -102,8 +102,8 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                     }
                 </div>
                 <div className="user-box">
-                    <label className='text-sky-500'>email</label>
-                    <input {...register('email', {
+                    <label htmlFor='email' className='text-sky-500'>email</label>
+                    <input id='email' {...register('email', {
                         required: 'email is required',
                         pattern: {
                             value: /^\s*[a-zA-Z0-9._%+-]+@gmail\.com\s*$/,

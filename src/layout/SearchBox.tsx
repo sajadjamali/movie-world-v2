@@ -30,7 +30,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({ closeMenu }) => {
 
     return (
         <>
-            <Button disabled={open ? true : false} onClick={(e) => { setSearchValue(''); setOpen(true) }}><PageviewIcon sx={{ fontSize: '50px' }} fontSize='large' className='text-rose-600 hover:text-blue-600' /></Button >
+            <Button aria-label="search button" disabled={open ? true : false} onClick={(e) => { setSearchValue(''); setOpen(true) }}><PageviewIcon sx={{ fontSize: '50px' }} fontSize='large' className='text-rose-600 hover:text-blue-600' /></Button >
             <Modal
                 open={open}
                 onClose={() => setOpen(false)}

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "next/link";
-import '../styles/ihover.css';
+// import '../styles/ihover.css';
 import Image from "next/image";
 import { MovieType } from "@/types";
 import Rating from '@mui/material/Rating';

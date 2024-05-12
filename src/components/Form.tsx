@@ -54,8 +54,8 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                     type === 'register' &&
                     <>
                         < div className="user-box">
-                            <label className='text-sky-500'>name</label>
-                            <input {...register('name', {
+                            <label htmlFor='name' className='text-sky-500'>name</label>
+                            <input id='name' {...register('name', {
                                 required: 'name is required'
                             })} className={`input-auth ${errors.name && 'border-b-red-700'}`} />
                             {
@@ -65,8 +65,8 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                             }
                         </div>
                         <div className="user-box">
-                            <label className='text-sky-500'>phone number</label>
-                            <input {...register('phone', {
+                            <label htmlFor='phone' className='text-sky-500'>phone number</label>
+                            <input id='phone' {...register('phone', {
                                 required: 'phone is required',
                                 pattern: {
                                     value: /^\s*09\d{9}\s*$/,
@@ -82,9 +82,9 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                     </>
                 }
                 <div className="user-box">
-                    <label className='text-sky-500'>password</label>
+                    <label htmlFor="password" className='text-sky-500'>password</label>
                     <div className='relative'>
-                        <input {...register('password', {
+                        <input id='password' {...register('password', {
                             required: 'password is required',
                             minLength: { value: 6, message: 'The password must be at least 6 digits' },
                             maxLength: { value: 15, message: 'The password must be maximum 15 digits' },

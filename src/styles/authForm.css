@@ -1,18 +1,6 @@
 .auth-box {
-  animation: auth-box 1s;
-  animation-fill-mode: forwards;
   box-shadow: 0 0 20px rgba(233, 228, 228, 0.6);
 }
-/* 
-@keyframes auth-box {
-  from {
-    top: -500px;
-  }
-
-  to {
-    top: 0;
-  }
-} */
 
 #authPage {
   background-color: #4158D0;

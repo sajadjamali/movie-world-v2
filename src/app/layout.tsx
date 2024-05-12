@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html lang='en'>
       <body className={`bg-stone-900 overflow-x-hidden ${myFont.className}`}>
         <ReactQueryProvider>
           <Aos />

@@ -1,6 +1,6 @@
 import React from 'react';
-import { MovieType } from '@/types';
 import Movie from './Movie';
+import { MovieType } from '@/types';
 
 const MoviesList: React.FC<{ movies: MovieType[], title: string }> = ({ movies, title }) => {
     return (

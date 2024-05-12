@@ -1,9 +1,9 @@
 import React from 'react';
+import Btn from './muiComponents/Btn';
 import MovieIcon from '@mui/icons-material/Movie';
 import TheatersIcon from '@mui/icons-material/Theaters';
 import LanguageIcon from '@mui/icons-material/Language';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import Btn from './muiComponents/Btn';
 
 const MovieInfoLinks: React.FC<{ homePage: string, imdbId: string, videos: string }> = ({ homePage, imdbId, videos }) => {
     return (

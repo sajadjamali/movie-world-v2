@@ -1,9 +1,8 @@
 'use client'
-import React from 'react';
+import { toast } from "react-toastify";
+import React, { useState } from 'react';
 import { downloadLinks } from '@/constant';
 import { DownloadLinkType } from '@/types';
-import { toast } from "react-toastify";
-import { useState } from 'react';
 import { isLoggedUser } from '@/utils/auth';
 
 const DownloadBox: React.FC<{ imdbId: string }> = ({ imdbId }) => {

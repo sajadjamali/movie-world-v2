@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
-import GavelIcon from '@mui/icons-material/Gavel';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import { ClickHandler } from '@/types';
 import GenreList from '../GenreList';
+import { ClickHandler } from '@/types';
 import { rules, questions } from '@/constant';
 import { RuleAndQuestionType } from '@/types';
+import Accordion from '@mui/material/Accordion';
+import GavelIcon from '@mui/icons-material/Gavel';
+import React, { useState, useEffect } from 'react';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 
 const MyAccordion: React.FC<{ expanded: boolean, handleCloseMenu: ClickHandler, role: string }> = ({ expanded, handleCloseMenu, role }) => {
 

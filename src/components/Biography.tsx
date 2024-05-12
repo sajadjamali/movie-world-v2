@@ -1,10 +1,9 @@
 "use client"
-import React, { useState } from 'react';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useRouter } from 'next/navigation';
-import { getBiography } from '@/utils';
 import Btn from './muiComponents/Btn';
+import { getBiography } from '@/utils';
+import React, { useState } from 'react';
 import MovieIcon from '@mui/icons-material/Movie';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Biography: React.FC<{ biography: string, imdbLink: string }> = ({ biography, imdbLink }) => {
 

@@ -1,7 +1,7 @@
 'use client'
+import Link from "next/link";
 import Image from "next/image";
 import error from '../assets/error.gif';
-import Link from "next/link";
 
 const Error = () => {
     return (

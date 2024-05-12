@@ -1,7 +1,7 @@
 "use client"
-import React, { useState } from 'react';
-import { ActorType } from '@/types';
 import Actor from './Actor';
+import { ActorType } from '@/types';
+import React, { useState } from 'react';
 
 const MovieActors: React.FC<{ actors: ActorType[] }> = ({ actors }) => {
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import { genres } from '@/constant';
-import { convertToPascalCase } from '@/utils';
-import { GenreType } from '@/types';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { genres } from '@/constant';
+import { GenreType } from '@/types';
 import { ClickHandler } from '@/types';
+import { convertToPascalCase } from '@/utils';
+import { usePathname } from 'next/navigation';
 
 const GenreList: React.FC<{ handleClick: ClickHandler }> = ({ handleClick }) => {
     const pathname = usePathname();

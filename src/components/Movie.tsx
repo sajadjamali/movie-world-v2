@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from "next/link";
+import '../styles/ihover.css';
 import Image from "next/image";
 import { MovieType } from "@/types";
-import { imgBaseUrl } from '@/services/api';
-import StarIcon from '@mui/icons-material/Star';
-import Tooltip from '@mui/material/Tooltip';
 import Rating from '@mui/material/Rating';
-import '../styles/ihover.css';
+import { imgBaseUrl } from '@/services/api';
+import Tooltip from '@mui/material/Tooltip';
+import StarIcon from '@mui/icons-material/Star';
 
 const Movie: React.FC<{ movie: MovieType, effect: string }> = ({ movie, effect }) => {
     return (

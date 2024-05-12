@@ -1,13 +1,13 @@
 "use client";
-import React from 'react';
-import Link from "next/link";
-import { MovieType } from "@/types";
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 import "../styles/categorySection.css";
-import { Keyboard, Scrollbar } from 'swiper/modules';
+import React from 'react';
 import Movie from "./Movie";
+import Link from "next/link";
+import { MovieType } from "@/types";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Keyboard, Scrollbar } from 'swiper/modules';
 import ForwardIcon from '@mui/icons-material/Forward';
 
 const CategorySection: React.FC<{ movies: MovieType[], sectionName: string, href: string, effect: string }> = ({ movies, sectionName, href, effect }) => {

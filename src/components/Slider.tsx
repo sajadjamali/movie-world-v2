@@ -10,13 +10,13 @@ import 'swiper/css/navigation';
 import '../styles/slider.css';
 import { useState } from "react";
 import Link from 'next/link';
-import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 import Loading from './Loading';
 import Error from './Error';
 import { getFirstFifteenWords } from '@/utils';
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { useGetSwipperMovies } from '@/hooks';
 import { baseUrl, imgBaseUrl } from '@/services/api';
+import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 
 const api_key = process.env.NEXT_PUBLIC_API_KEY;
 

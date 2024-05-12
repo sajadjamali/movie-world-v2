@@ -1,15 +1,15 @@
 "use client"
-import React, { useState } from "react";
-import Pagination from '@mui/material/Pagination';
-import PaginationItem from '@mui/material/PaginationItem';
-import MoviesList from "@/components/MoviesList";
-import { isExistPoster, getFetchUrl } from '@/utils';
-import { useGetSearchedItems } from "@/hooks";
 import Actor from "./Actor";
 import Loading from "./Loading";
 import '@/styles/selectBox.css';
 import { ActorType } from "@/types";
 import Error from "@/components/Error";
+import React, { useState } from "react";
+import { useGetSearchedItems } from "@/hooks";
+import MoviesList from "@/components/MoviesList";
+import Pagination from '@mui/material/Pagination';
+import { isExistPoster, getFetchUrl } from '@/utils';
+import PaginationItem from '@mui/material/PaginationItem';
 
 const PaginationSearch: React.FC<{ searchValue: string }> = ({ searchValue }) => {
 

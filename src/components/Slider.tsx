@@ -34,7 +34,7 @@ const Slider: React.FC = () => {
 
     return (
         <div style={{ height: "470px" }} className="flex justify-center items-center bg-black pt-7 px-4 lg:px-0 lg:pt-0">
-            <section className='hidden lg:block lg:w-6/12 h-full'
+            {/* <section className='hidden lg:block lg:w-6/12 h-full'
                 style={{
                     backgroundRepeat: "no-repeat",
                     backgroundImage: `url(${imgBaseUrl}${data?.results[activeSlideIndex].backdrop_path})`,
@@ -58,7 +58,7 @@ const Slider: React.FC = () => {
                         <PlayCircleOutlineIcon className='w-full text-white' fontSize='large' />
                     </Link>
                 </div>
-            </section>
+            </section> */}
             <Swiper
                 className='w-full lg:mt-10 lg:w-6/12'
                 effect={'coverflow'}

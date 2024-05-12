@@ -1,11 +1,11 @@
-import MySwiper from "@/components/Slider";
+import Slider from "@/components/Slider";
 import CategorySection from "@/components/CategorySection";
 import MyDivider from "@/components/muiComponents/MyDivider";
 
 const Page = async () => {
     return (
         <div className="pb-8">
-            <MySwiper />
+            <Slider />
             <main className="pt-5">
                 <MyDivider label="Now Playing" src="nowPlaying.png" />
                 <CategorySection effect="" sectionName="now_playing" />

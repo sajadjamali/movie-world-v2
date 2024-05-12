@@ -1,12 +1,11 @@
 "use client"
-import Tabs from '@mui/material/Tabs';
+import { useState } from 'react';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import { useState } from 'react';
+import Tabs from '@mui/material/Tabs';
+import TabPanel from '@/components/TabPanel';
 import { useMediaQuery } from '@mui/material';
 import MyAccordion from '@/components/muiComponents/MyAccordion';
-import TabPanel from '@/components/TabPanel';
-import Particle from '@/components/animation/Particle';
 
 const Page = () => {
 
@@ -19,7 +18,6 @@ const Page = () => {
 
     return (
         <div className='px-3 py-10 min-[400px]:w-11/12 md:w-9/12 lg:w-7/12 mx-auto'>
-            <Particle />
             <Box sx={{ backgroundColor: '#27272a', color: 'white', borderRadius: '10px', zIndex: 100 }}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <Tabs

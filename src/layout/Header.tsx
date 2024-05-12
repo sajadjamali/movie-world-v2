@@ -10,13 +10,12 @@ import SearchBox from './SearchBox';
 import { usePathname } from 'next/navigation';
 import GenreList from '@/components/GenreList';
 
-
 const Header: React.FC = () => {
 
     const pathname = usePathname();
 
     return (
-        <div className="bg-gray-950 w-full fixed top-0 z-50 pb-1 pt-2 ps-2 min-[350px]:px-5 lg:p-0 flex items-center justify-between lg:justify-around">
+        <div className="bg-gray-950 w-full fixed top-0 z-50 py-2 ps-2 min-[350px]:px-5 lg:p-0 flex items-center justify-between lg:justify-around">
             <div className='flex items-center space-x-2'>
                 <Profile />
                 <div className='hidden lg:block'>
@@ -24,10 +23,10 @@ const Header: React.FC = () => {
                 </div>
             </div>
             <Image
-                className="w-auto lg:w-40"
+                className="w-auto h-10 lg:w-36"
                 src="/assets/imgs/logo.png"
                 width={100}
-                height={15}
+                height={100}
                 alt="not found"
             />
             <div id="hambergerMenu" className="hover:text-yellow-500 lg:hidden">

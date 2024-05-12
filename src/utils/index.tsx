@@ -1,17 +1,17 @@
-import { genres } from "@/constant";
-import { ProductionCountrieType } from "@/types";
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import WorkIcon from '@mui/icons-material/Work';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import CloseIcon from '@mui/icons-material/Close';
-import HomeIcon from '@mui/icons-material/Home';
-import MovieCreationIcon from '@mui/icons-material/MovieCreation';
-import AnimationIcon from '@mui/icons-material/Animation';
-import InsertChartIcon from '@mui/icons-material/InsertChart';
-import BookIcon from '@mui/icons-material/Book';
-import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import { baseUrl } from "@/services/api";
 import { ActorType, MovieType } from "@/types";
+import WorkIcon from '@mui/icons-material/Work';
+import HomeIcon from '@mui/icons-material/Home';
+import BookIcon from '@mui/icons-material/Book';
+import { genres, categories } from "@/constant";
+import { ProductionCountrieType } from "@/types";
+import CloseIcon from '@mui/icons-material/Close';
+import AnimationIcon from '@mui/icons-material/Animation';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import InsertChartIcon from '@mui/icons-material/InsertChart';
+import MovieCreationIcon from '@mui/icons-material/MovieCreation';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 
 const api_key = process.env.NEXT_PUBLIC_API_KEY;
 
@@ -58,13 +58,6 @@ export const getBiography = (biography: string): string => {
     if (biography.split(' ').length < 100) {
         return biography + "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi laudantium ad tenetur cum inventore dolores cumque aliquid. Quisquam commodi non necessitatibus a. Officia praesentium commodi quos tempore sunt perferendis temporibus corrupti quasi, rem recusandae accusantium sit necessitatibus! Necessitatibus reiciendis totam architecto mollitia, magnam dignissimos voluptatem fugiat commodi saepe optio velit nostrum repellat! Quidem, autem eveniet. Itaque nemo neque ex ea illo! Ipsa porro molestias doloremque voluptates cumque quo esse, dolor blanditiis nam iure mollitia omnis sit unde eos, distinctio praesentium magni quos quisquam, sapiente autem assumenda. At error quos ullam numquam rem, cupiditate molestiae ducimus enim sequi porro autem nemo itaque quibusdam mollitia, ab commodi blanditiis corporis labore obcaecati consectetur sunt iste? Quam corporis dolorem exercitationem tempora quisquam quod quo pariatur dignissimos aperiam incidunt inventore."
     } else return biography
-}
-
-// -------------------------------------------------------------------
-
-export const isGenre = (slug: string): boolean => {
-    const isNameExists = genres.some(genre => genre.name === slug);
-    return isNameExists;
 }
 
 // -------------------------------------------------------------------
@@ -133,10 +126,15 @@ export const isExistPoster = (arr: ActorType[] | MovieType[]): boolean => {
 
 // -------------------------------------------------------------------
 
+export const isGenre = (slug: string): boolean => {
+    return genres.some(genre => genre.name === slug);
+}
+
 export const isNotFound = (params: string[]): boolean => {
-    const isGenre = genres.some(genre => genre.name === params[1])
-    if (params.length !== 2 || !isGenre || (params[0] !== 'category' && params[0] !== 'genre'))
-        return true;
-    else
-        return false;
+    const isCategory = categories.some(categorie => categorie === params[1]);
+    const temp = isGenre(params[1])
+    if (params.length !== 2 || (params[0] !== 'category' && params[0] !== 'genre')) return true;
+    else if (params[0] === 'category' && !isCategory) return true;
+    else if (params[0] === 'genre' && !temp) return true;
+    else return false;
 }

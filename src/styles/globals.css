@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .input-auth {
+    @apply text-white bg-transparent outline-none w-full border-b-[1px] border-gray-300;
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   #movieImg {
     height: 800px !important;

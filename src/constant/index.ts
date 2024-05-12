@@ -1,4 +1,4 @@
-import { GenreType, LinkType, DownloadLinkType, RuleAndQuestionType } from "@/types"
+import { GenreType, LinkType, DownloadLinkType, RuleAndQuestionType } from "@/types";
 
 export const links: LinkType[] = [
     { title: 'Home', href: "/home" }, { title: 'Now Playing', href: '/category/now_playing' },
@@ -64,6 +64,8 @@ export const breakpoints = {
     customSM: '@media (min-width: 600px)',
     customMD: '@media (min-width: 700px)'
 };
+
+export const categories: string[] = ['now_playing', 'popular', 'upcoming', 'top_rated'];
 
 export const genres: GenreType[] = [
     {

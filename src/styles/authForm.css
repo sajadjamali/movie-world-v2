@@ -4,11 +4,6 @@
   box-shadow: 0 0 20px rgba(233, 228, 228, 0.6);
 }
 
-#authPage {
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-}
-
 @keyframes auth-box {
   from {
     top: -500px;
@@ -19,13 +14,9 @@
   }
 }
 
-.auth-box .user-box {
-  margin-bottom: 30px;
-}
-
-.auth-box .user-box input {
-  outline: none;
-  background: transparent;
+#authPage {
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 }
 
 .auth-box form button:disabled a {
@@ -37,33 +28,11 @@
   box-shadow: none;
 }
 
-.auth-box form button a {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #03e9f4;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: .5s;
-  margin-top: 40px;
-  letter-spacing: 4px;
-}
-
 .auth-box button a:hover {
-  background: #03e9f4;
-  color: red;
-  border-radius: 5px;
   box-shadow: 0 0 5px #03e9f4,
     0 0 25px #03e9f4,
     0 0 50px #03e9f4,
     0 0 10px #03e9f4;
-}
-
-.auth-box a span {
-  position: absolute;
-  display: block;
 }
 
 .auth-box a span:nth-child(1) {

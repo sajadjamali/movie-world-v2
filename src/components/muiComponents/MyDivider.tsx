@@ -1,7 +1,7 @@
-import Divider from '@mui/material/Divider';
+import "@/styles/customDivider.css";
 import Chip from '@mui/material/Chip';
 import Avatar from '@mui/material/Avatar';
-import "../../styles/customDivider.css";
+import Divider from '@mui/material/Divider';
 
 const MyDivider: React.FC<{ label: string, src: string }> = ({ label, src }) => {
     return (
@@ -19,7 +19,7 @@ const MyDivider: React.FC<{ label: string, src: string }> = ({ label, src }) => 
                 backgroundColor: 'red',
             }
         }}>
-            <div style={{ top: '-22px' }} className="absolute w-10 h-10 left-0 right-0 mx-auto">
+            <div className="absolute w-10 h-10 left-0 right-0 top-[-20px] mx-auto">
                 <div className="circle circle1"></div>
                 <div className="circle circle2"></div>
                 <div className="circle circle3"></div>

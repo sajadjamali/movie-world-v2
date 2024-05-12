@@ -1,9 +1,9 @@
 import React from 'react';
-import { ILoggedUser } from '@/types/auth';
 import Image from 'next/image';
+import { ILoggedUser } from '@/types/auth';
 import EmailIcon from '@mui/icons-material/Email';
-import PhonelinkRingIcon from '@mui/icons-material/PhonelinkRing';
 import LogoutIcon from '@mui/icons-material/Logout';
+import PhonelinkRingIcon from '@mui/icons-material/PhonelinkRing';
 
 const UserInfo: React.FC<{ user: ILoggedUser, logOut: () => void }> = ({ user, logOut }) => {
 

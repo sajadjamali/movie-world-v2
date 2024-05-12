@@ -2,8 +2,8 @@
 import Link from 'next/link';
 import { toast } from 'react-toastify';
 import React, { useState } from 'react';
-import { IRegisterInfo } from '@/types/auth';
 import { useRouter } from 'next/navigation';
+import { IRegisterInfo } from '@/types/auth';
 import { trimedData, expiresDate } from '@/utils/auth';
 import { useForm, SubmitHandler } from "react-hook-form";
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -49,7 +49,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                 <button onClick={() => router.back()} className={styles}>Back</button>
             </div>
             <h2 className="text-red-600 bg-slate-950 font-bold text-center border-2 border-yellow-300 rounded-md py-2">{type}</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
+            <form onSubmit={handleSubmit(onSubmit)} className="mt-10 space-y-8">
                 {
                     type === 'register' &&
                     <>
@@ -57,7 +57,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                             <label className='text-sky-500'>name</label>
                             <input {...register('name', {
                                 required: 'name is required'
-                            })} className={`text-white w-full border-b-[1px] border-gray-300 ${errors.name && 'border-b-red-700'}`} />
+                            })} className={`input-auth ${errors.name && 'border-b-red-700'}`} />
                             {
                                 errors.name && errors.name.type === 'required' && (
                                     <p className='text-red-500 font-normal mt-3 text-sm'>{errors.name?.message}</p>
@@ -72,7 +72,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                                     value: /^\s*09\d{9}\s*$/,
                                     message: "Please enter a valid phone number",
                                 }
-                            })} className={`text-white w-full border-b-[1px] border-gray-300 ${errors.phone && 'border-b-red-700'}`} />
+                            })} className={`input-auth ${errors.phone && 'border-b-red-700'}`} />
                             {
                                 errors.phone && (
                                     <p className='text-red-500 font-normal mt-3 text-sm'>{errors.phone?.message}</p>
@@ -88,7 +88,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                             required: 'password is required',
                             minLength: { value: 6, message: 'The password must be at least 6 digits' },
                             maxLength: { value: 15, message: 'The password must be maximum 15 digits' },
-                        })} className={`text-white w-full border-b-[1px] border-gray-300 ${errors.password && 'border-b-red-700'}`} type={showPassword ? "text" : "password"} />
+                        })} className={`input-auth ${errors.password && 'border-b-red-700'}`} type={showPassword ? "text" : "password"} />
                         <div onClick={() => setShowPassword(!showPassword)} className='absolute bottom-2 right-1 cursor-pointer'>
                             {
                                 showPassword ? <VisibilityIcon className='text-white' /> : <VisibilityOffIcon className='text-white' />
@@ -109,25 +109,27 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                             value: /^\s*[a-zA-Z0-9._%+-]+@gmail\.com\s*$/,
                             message: "Invalid email address"
                         }
-                    })} className={`text-white w-full border-b-[1px] border-gray-300 ${errors.email && 'border-b-red-700'}`} />
+                    })} className={`input-auth ${errors.email && 'border-b-red-700'}`} />
                     {
                         errors.email && (
                             <p className='text-red-500 font-normal mt-3 text-sm'>{errors.email?.message}</p>
                         )
                     }
                 </div>
-                {
-                    type === 'register' ?
-                        <Link href="/auth/login" className='text-rose-600 font-normal hover:ring-rose-700 hover:text-yellow-400 ring-2 py-1 px-3 rounded-md ring-sky-300'>Sign In</Link>
-                        :
-                        <Link href="/auth/register" className='text-red-400 font-normal hover:text-sky-400'>Have you not registered?</Link>
-                }
+                <div>
+                    {
+                        type === 'register' ?
+                            <Link href="/auth/login" className='text-rose-600 font-normal hover:ring-rose-700 hover:text-yellow-400 ring-2 py-1 px-3 rounded-md ring-sky-300'>Sign In</Link>
+                            :
+                            <Link href="/auth/register" className='text-red-400 font-normal hover:text-sky-400'>Have you not registered?</Link>
+                    }
+                </div>
                 <button disabled={isLoading} type="submit" className="flex w-full justify-center">
-                    <a>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <a className='px-7 py-3 font-bold text-sky-400 relative inline-block uppercase no-underline overflow-hidden transition duration-500 ease-in-out tracking-widest hover:rounded-lg hover:text-red-700 hover:bg-[#03e9f4]'>
+                        <span className='block absolute'></span>
+                        <span className='block absolute'></span>
+                        <span className='block absolute'></span>
+                        <span className='block absolute'></span>
                         {type === 'register' ? 'Register' : "Login"}
                     </a>
                 </button>

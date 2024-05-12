@@ -1,12 +1,12 @@
 import React from 'react';
-import { useMainContext } from '@/context/MainContex';
-import { styled } from '@mui/material/styles';
+import UserInfo from './UserInfo';
 import Badge from '@mui/material/Badge';
+import AuthButtons from './AuthButtons';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
-import UserInfo from './UserInfo';
 import { useState, useEffect } from 'react';
-import AuthButtons from './AuthButtons';
+import { styled } from '@mui/material/styles';
+import { useMainContext } from '@/context/MainContex';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {

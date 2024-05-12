@@ -1,14 +1,15 @@
 "use client"
 import React from 'react';
-import "../styles/header.css";
+import Menu from './Menu';
 import Link from "next/link";
-import Image from "next/image";
-import Menu from "./Menu";
-import SearchBox from './SearchBox';
+import '@/styles/header.css';
+import Image from 'next/image';
+import Profile from './Profile';
 import { links } from '@/constant';
+import SearchBox from './SearchBox';
 import { usePathname } from 'next/navigation';
 import GenreList from '@/components/GenreList';
-import Profile from './Profile';
+
 
 const Header: React.FC = () => {
 

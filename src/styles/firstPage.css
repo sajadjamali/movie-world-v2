@@ -6,10 +6,6 @@
     animation: stroke 5s forwards alternate;
 }
 
-button {
-    transition: transform .3s;
-}
-
 @keyframes backgroundAnimation {
     0% {
         scale: 1;

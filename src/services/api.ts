@@ -1,5 +1,5 @@
-import { getErrorMessage } from "@/utils/auth";
 import { IAuthData } from "@/types/auth";
+import { getErrorMessage } from "@/utils/auth";
 export const baseUrl = "https://api.themoviedb.org/3";
 export const imgBaseUrl = "https://image.tmdb.org/t/p/w500";
 

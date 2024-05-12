@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import PageviewIcon from '@mui/icons-material/Pageview';
 import Link from 'next/link';
+import React, { useState } from 'react';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
 import { useRouter } from 'next/navigation';
+import PageviewIcon from '@mui/icons-material/Pageview';
 
 interface SearchBoxProps {
     closeMenu: () => void;

@@ -3,7 +3,7 @@
   height: 100%;
   position: absolute;
   border-radius: 50%;
-  animation: ripple-animation 1.5s infinite ease-out;
+  animation: ripple-animation 1s infinite ease-out;
 }
 
 .circle1 {

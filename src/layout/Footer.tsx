@@ -1,6 +1,6 @@
 import React from 'react';
-import SocialNetworks from '@/layout/SocialNetworks';
 import Link from "next/link";
+import SocialNetworks from '@/layout/SocialNetworks';
 
 const Footer: React.FC = () => {
     return (

@@ -1,10 +1,11 @@
 'use client'
-import { createContext, useContext, useState, useEffect } from "react";
-import { ILoggedUser as UserType } from "@/types/auth";
-import { getLoggedUser } from '@/services/auth';
-import { logOut } from "@/services/auth";
 import { toast } from "react-toastify";
+import { logOut } from "@/services/auth";
 import { isLoggedUser } from "@/utils/auth";
+import { getLoggedUser } from '@/services/auth';
+import { ILoggedUser as UserType } from "@/types/auth";
+import { createContext, useContext, useState, useEffect } from "react";
+
 interface MainContextValue {
     loggedUser: UserType;
     handleLogOut: () => void
@@ -41,16 +42,14 @@ const MainContext = ({ children }: { children: React.ReactNode }) => {
 
     const handleLogOut = async () => {
         try {
-            const res = await logOut();
+            await logOut();
             toast.success('logOut success');
             document.cookie = 'isLogged=; Path=/; Max-Age=0'
-            deleteLoggedUser();
+            setLoggedUser(initialUser);
         } catch (error) {
             console.log(error);
         }
     }
-
-    const deleteLoggedUser = () => setLoggedUser(initialUser)
 
     return (
         <Context.Provider value={{ loggedUser, handleLogOut }}>

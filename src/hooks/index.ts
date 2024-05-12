@@ -1,6 +1,6 @@
-import { fetcherFunc } from "@/services/dataFeching";
-import { useQuery } from "@tanstack/react-query";
 import { baseUrl } from "@/services/api";
+import { useQuery } from "@tanstack/react-query";
+import { fetcherFunc } from "@/services/dataFeching";
 
 const api_key = process.env.NEXT_PUBLIC_API_KEY;
 

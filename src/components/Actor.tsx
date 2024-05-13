@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from "next/link";
-import '../styles/ihover.css';
 import Image from "next/image";
 import { ActorType } from "@/types";
 import { imgBaseUrl } from '@/services/api';

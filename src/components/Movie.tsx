@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from "next/link";
-// import '../styles/test.css';
+//import '@/styles/text.css';
+import '@/styles/ihover.css';
 import Image from "next/image";
 import { MovieType } from "@/types";
 import Rating from '@mui/material/Rating';
@@ -14,14 +15,22 @@ const Movie: React.FC<{ movie: MovieType, effect: string }> = ({ movie, effect }
             {
                 movie.poster_path &&
                 <div data-aos={effect}>
-                    <Link href={`/movieInformation/${movie.id}`} className='transition-transform duration-300 ease-in-out hover:scale-105 rounded-sm'>
-                        <Image
-                            alt={movie.title}
-                            width={250}
-                            height={250}
-                            src={`${imgBaseUrl}${movie.poster_path}`}
-                            unoptimized
-                        />
+                    <div className="ih-item square effect7">
+                        <Link href={`/movieInformation/${movie.id}`}>
+                            <Image
+                                alt={movie.title}
+                                width={250}
+                                height={250}
+                                src={`${imgBaseUrl}${movie.poster_path}`}
+                                unoptimized
+                            />
+                            <div className="info">
+                                <h3>{movie.title}</h3>
+                                <p>{movie.overview}</p>
+                            </div>
+                        </Link>
+                    </div>
+                    <Link href={`/movieInformation/${movie.id}`}>
                         <p className="text-white text-center max-[410px]:text-sm mt-2">
                             {movie.title}
                         </p>

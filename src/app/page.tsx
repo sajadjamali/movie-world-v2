@@ -1,8 +1,9 @@
-import Link from "next/link";
-import BackGround from '@/components/animation/BackGround';
 import '../styles/firstPage.css';
+import LetsGoLink from "@/components/LetsGoLink";
+import BackGround from '@/components/animation/BackGround';
 
 const Page = async () => {
+
   return (
     <div className="flex flex-col h-screen overflow-hidden bg-black">
       <section className="relative h-full">
@@ -12,12 +13,7 @@ const Page = async () => {
             Movie World
           </text>
         </svg>
-        <Link style={{ transform: "translateX(-50%)", transition: "transform" }} href="/home" id="letsGoLink"
-          className="bg-red-700 mx-auto hover:bg-rose-800 text-lg font-bold w-10/12 mt-40 min-[400px]:w-7/12 sm:w-5/12 md:w-3/12 xl:w-2/12 text-center text-white py-2 absolute z-20 rounded-md top-1/3">
-          <p className="animate-bounce">
-            Lets Go
-          </p>
-        </Link>
+        <LetsGoLink />
       </section>
     </div>
   );

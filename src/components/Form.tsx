@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link';
+import '@/styles/authForm.css';
 import { toast } from 'react-toastify';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -119,7 +120,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                 <div>
                     {
                         type === 'register' ?
-                        <Link href="/auth/login" className={styles}>Sign In</Link>
+                            <Link href="/auth/login" className={styles}>Sign In</Link>
                             // <Link href="/auth/login" className='text-rose-600 font-normal bg-green-600 hover:ring-rose-700 hover:text-yellow-400 ring-2 py-1 px-3 rounded-md ring-sky-300'>Sign In</Link>
                             :
                             <Link href="/auth/register" className='text-red-400 font-normal hover:text-sky-400'>Have you not registered?</Link>

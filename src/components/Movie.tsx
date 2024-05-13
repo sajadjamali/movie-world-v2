@@ -14,12 +14,13 @@ const Movie: React.FC<{ movie: MovieType, effect: string }> = ({ movie, effect }
             {
                 movie.poster_path &&
                 <div data-aos={effect}>
-                    <div className="ih-item square effect7">
+                    <div className="ih-item square effect7 relative w-60 h-96">
                         <Link href={`/movieInformation/${movie.id}`}>
                             <Image
+                                fill
                                 alt={movie.title}
-                                width={250}
-                                height={250}
+                                // width={250}
+                                // height={250}
                                 src={`${imgBaseUrl}${movie.poster_path}`}
                                 unoptimized
                             />

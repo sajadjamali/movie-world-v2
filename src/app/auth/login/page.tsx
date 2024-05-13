@@ -1,4 +1,3 @@
-import '@/styles/authForm.css';
 import { Metadata } from 'next';
 import Form from '@/components/Form';
 import { headers } from 'next/headers';

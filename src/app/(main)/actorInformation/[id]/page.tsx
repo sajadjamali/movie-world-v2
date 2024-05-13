@@ -26,7 +26,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
     return (
         <div className="px-4 py-7 lg:px-6">
-            {/* <Particle /> */}
+            <Particle />
             <section className={`${actor?.biography ? 'lg:flex' : 'flex flex-col justify-center items-center'} lg:space-x-5 xl:space-x-8`}>
                 <div id="actorCard" className="rounded-lg mx-auto bg-neutral-950 lg:mx-0 p-4 min-[450px]:w-10/12 sm:w-8/12 md:w-6/12 xl:w-5/12">
                     <p className="text-white text-center text-lg">{actor.name}</p>

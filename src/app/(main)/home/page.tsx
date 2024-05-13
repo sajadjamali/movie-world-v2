@@ -1,7 +1,7 @@
+import { Suspense } from 'react'
 import Slider from "@/components/Slider";
 import CategorySection from "@/components/CategorySection";
 import MyDivider from "@/components/muiComponents/MyDivider";
-import { Suspense } from 'react'
 
 const Page = async () => {
     return (

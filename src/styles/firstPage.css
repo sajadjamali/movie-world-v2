@@ -73,3 +73,21 @@
         left: 50%;
     }
 }
+
+.please-text {
+    animation: pleaseText 2s infinite;
+}
+
+@keyframes pleaseText {
+    0% {
+        color: rgb(22, 230, 230);
+    }
+
+    50% {
+        color: rgb(216, 238, 19);
+    }
+
+    100% {
+        color: white;
+    }
+}

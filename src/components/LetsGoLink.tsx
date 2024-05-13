@@ -15,7 +15,7 @@ const LetsGoLink: React.FC = () => {
         {
           isLoading ?
             <>
-              <p className="inline leading-3 font-normal">please wait</p>
+              <p className="inline leading-3 font-normal please-text">please wait</p>
               <HourglassTopIcon fontSize='large' className='text-yellow-500 me-2 animate-spin' />
             </>
             :

@@ -1,4 +1,4 @@
-import { baseUrl } from "../api";
+import { baseUrl } from "./api";
 
 const api_key = process.env.NEXT_PUBLIC_API_KEY;
 

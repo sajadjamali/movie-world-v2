@@ -1,4 +1,4 @@
-import { getApi, postApi } from "../api";
+import { getApi, postApi } from "./api";
 import { IAuthData } from "@/types/auth";
 
 export const register = (data: IAuthData) => postApi('auth/register', data);

@@ -54,7 +54,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                 {
                     type === 'register' &&
                     <>
-                        < div className="user-box">
+                        < div className="relative">
                             <label htmlFor='name' className='text-sky-500'>name</label>
                             <input id='name' {...register('name', {
                                 required: 'name is required'

@@ -54,7 +54,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                 {
                     type === 'register' &&
                     <>
-                        < div className="relative">
+                        < div>
                             <label htmlFor='name' className='text-sky-500'>name</label>
                             <input id='name' {...register('name', {
                                 required: 'name is required'
@@ -65,7 +65,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                                 )
                             }
                         </div>
-                        <div className="user-box">
+                        <div>
                             <label htmlFor='phone' className='text-sky-500'>phone number</label>
                             <input id='phone' {...register('phone', {
                                 required: 'phone is required',
@@ -82,7 +82,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                         </div>
                     </>
                 }
-                <div className="user-box">
+                <div>
                     <label htmlFor="password" className='text-sky-500'>password</label>
                     <div className='relative'>
                         <input id='password' {...register('password', {
@@ -102,7 +102,7 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                         )
                     }
                 </div>
-                <div className="user-box">
+                <div>
                     <label htmlFor='email' className='text-sky-500'>email</label>
                     <input id='email' {...register('email', {
                         required: 'email is required',

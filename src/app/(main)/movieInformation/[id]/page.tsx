@@ -96,7 +96,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
                             {movie?.overview}
                         </div>
                     </section>
-                    {movie?.credits.cast &&
+                    {movie?.credits.cast.length &&
                         <MovieActors actors={movie?.credits.cast} />
                     }
                 </section>

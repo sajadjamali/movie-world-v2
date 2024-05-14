@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from "next/link";
-//import '@/styles/text.css';
 import '@/styles/ihover.css';
 import Image from "next/image";
 import { MovieType } from "@/types";

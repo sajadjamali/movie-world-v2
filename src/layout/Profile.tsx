@@ -5,6 +5,7 @@ import AuthButtons from './AuthButtons';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import { useState, useEffect } from 'react';
+import { isLoggedUser } from '@/utils/auth';
 import { styled } from '@mui/material/styles';
 import { useMainContext } from '@/context/MainContex';
 
@@ -50,7 +51,9 @@ const Profile: React.FC = () => {
         };
     }, []);
 
-    if (!loggedUser.name) return <AuthButtons />
+    if (!isLoggedUser) return <AuthButtons />
+    // if (!loggedUser.name) return <AuthButtons />
+
 
     return (
         <StyledBadge

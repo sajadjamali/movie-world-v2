@@ -51,9 +51,8 @@ const Profile: React.FC = () => {
         };
     }, []);
 
-    if (!isLoggedUser) return <AuthButtons />
+    if (!isLoggedUser()) return <AuthButtons />
     // if (!loggedUser.name) return <AuthButtons />
-
 
     return (
         <StyledBadge

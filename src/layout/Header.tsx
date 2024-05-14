@@ -1,12 +1,13 @@
 "use client"
 import React from 'react';
-import Menu from './Menu';
+import dynamic from 'next/dynamic';
+const Menu = dynamic(() => import('./Menu'))
 import Link from "next/link";
 import '@/styles/header.css';
 import Image from 'next/image';
 import Profile from './Profile';
 import { links } from '@/constant';
-import SearchBox from './SearchBox';
+const SearchBox = dynamic(() => import('./SearchBox'))
 import { usePathname } from 'next/navigation';
 import GenreList from '@/components/GenreList';
 

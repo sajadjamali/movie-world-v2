@@ -6,7 +6,8 @@ import "../styles/categorySection.css";
 import { convertToPascalCase } from "@/utils";
 import { getMovies } from "@/services/dataFeching";
 import ForwardIcon from '@mui/icons-material/Forward';
-import CategorySectionSlider from "./CategorySectionSlider";
+import dynamic from 'next/dynamic';
+const CategorySectionSlider = dynamic(() => import('./CategorySectionSlider'))
 
 const CategorySection: React.FC<{ sectionName: string, effect: string }> = async ({ sectionName, effect }) => {
 

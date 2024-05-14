@@ -1,14 +1,13 @@
-import { Suspense } from 'react'
-import Slider from "@/components/Slider";
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
+const Slider = dynamic(() => import('@/components/Slider'))
 import CategorySection from "@/components/CategorySection";
 import MyDivider from "@/components/muiComponents/MyDivider";
 
 const Page = async () => {
     return (
         <div className="pb-8">
-            <Suspense fallback={<p>Loading...</p>}>
-                <Slider />
-            </Suspense>
+            <Slider />
             <main className="pt-5">
                 <MyDivider label="Now Playing" src="nowPlaying.png" />
                 <Suspense fallback={<p>Loading...</p>}>

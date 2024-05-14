@@ -8,7 +8,6 @@ import Image from 'next/image';
 import Profile from './Profile';
 import { links } from '@/constant';
 import SearchBox from './SearchBox';
-// const SearchBox = dynamic(() => import('./SearchBox'))
 import { usePathname } from 'next/navigation';
 import GenreList from '@/components/GenreList';
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import { ActorType } from "@/types";
+import { blurHash } from '@/constant';
 import { imgBaseUrl } from '@/services/api';
 
 const Actor: React.FC<{ actor: ActorType }> = ({ actor }) => {
@@ -14,6 +15,8 @@ const Actor: React.FC<{ actor: ActorType }> = ({ actor }) => {
                     unoptimized
                     src={`${imgBaseUrl}${actor.profile_path}`}
                     alt={actor.name}
+                    blurDataURL={blurHash}
+                    placeholder="blur"
                 />
                 <p className="mt-2 text-center">
                     {actor?.name}

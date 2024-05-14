@@ -3,6 +3,7 @@ import Link from "next/link";
 import '@/styles/ihover.css';
 import Image from "next/image";
 import { MovieType } from "@/types";
+import { blurHash } from '@/constant';
 import Rating from '@mui/material/Rating';
 import { imgBaseUrl } from '@/services/api';
 import Tooltip from '@mui/material/Tooltip';
@@ -22,6 +23,8 @@ const Movie: React.FC<{ movie: MovieType, effect: string }> = ({ movie, effect }
                                 height={250}
                                 src={`${imgBaseUrl}${movie.poster_path}`}
                                 unoptimized
+                                blurDataURL={blurHash}
+                                placeholder="blur"
                             />
                             <div className="info">
                                 <h3>{movie.title}</h3>

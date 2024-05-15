@@ -11,7 +11,7 @@ const UserInfo: React.FC<{ user: ILoggedUser, logOut: () => void }> = ({ user, l
         <div className='bg-gray-900 rounded-md ring-1 ring-yellow-400 text-base p-2 space-y-4 text-white'>
             <div className='flex items-center space-x-3'>
                 <Image className='rounded-full' src="/assets/imgs/profile.png" alt='profile' width={50} height={50} />
-                <p className='text-rose-500 text-lg'>{user.name}</p>
+                <p className='text-rose-500 text-lg tracking-wider'>{user.name}</p>
             </div>
             <hr />
             <div className='flex items-center space-x-2'>

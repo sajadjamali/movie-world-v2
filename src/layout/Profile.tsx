@@ -79,7 +79,8 @@ const Profile: React.FC = () => {
                                     }
                                 }
                             }}
-                            title={<UserInfo user={loggedUser} logOut={handleLogOut} />}>
+                            title={<UserInfo user={loggedUser} logOut={handleLogOut} />}
+                        >
                             <button onClick={() => setIsVisibleInfoCard(x => !x)}>
                                 <Avatar style={{ width: '60px', height: '60px' }} src="/assets/imgs/profile.png" />
                             </button>

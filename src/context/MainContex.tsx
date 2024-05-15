@@ -42,7 +42,8 @@ const MainContext = ({ children }: { children: React.ReactNode }) => {
 
     const handleLogOut = async () => {
         try {
-            await logOut();
+            const res = await logOut();
+            console.log(res.message)
             toast.success('logOut success');
             document.cookie = 'isLogged=; Path=/; Max-Age=0'
             setLoggedUser(initialUser);

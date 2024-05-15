@@ -16,8 +16,9 @@ const SearchBox: React.FC<SearchBoxProps> = ({ closeMenu }) => {
     const [searchValue, setSearchValue] = useState<string>('');
 
     const reset = () => {
-        closeMenu();
+        console.log('close')
         setOpen(false);
+        closeMenu();
         setSearchValue('');
     }
 

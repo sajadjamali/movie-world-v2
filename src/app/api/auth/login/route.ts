@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
 
         return Response.json({ message: 'user logged successfully' }, {
             status: 200,
-            headers: { 'Set-Cookie': `token=${token}; Path=/; expires=${expiresDate()}` }
+            headers: { 'Set-Cookie': `token=${token}; HttpOnly; Path=/; expires=${expiresDate()}` }
         });
 
     } catch (error) {

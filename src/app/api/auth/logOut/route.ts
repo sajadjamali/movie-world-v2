@@ -2,7 +2,7 @@ export async function GET(request: Request) {
     try {
         return Response.json({ message: 'user logged out successfully' }, {
             status: 200,
-            headers: { 'Set-Cookie': `token=; Path=/; Max-Age=0` }
+            headers: { 'Set-Cookie': `token=; domain=movie-world-v2.vercel.app Path=/; Max-Age=0` }
         });
 
     } catch (error) {

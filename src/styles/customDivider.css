@@ -13,22 +13,22 @@
 
 .circle2 {
   background-color: blue;
-  animation-delay: 500ms;
+  animation-delay: 400ms;
 }
 
 .circle3 {
   background-color: red;
-  animation-delay: 1s;
+  animation-delay: 600ms;
 }
 
 .circle4 {
   background-color: yellow;
-  animation-delay: 1500ms;
+  animation-delay: 800ms;
 }
 
 .circle5 {
   background-color: purple;
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 
 

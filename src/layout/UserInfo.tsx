@@ -4,8 +4,9 @@ import { ILoggedUser } from '@/types/auth';
 import EmailIcon from '@mui/icons-material/Email';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PhonelinkRingIcon from '@mui/icons-material/PhonelinkRing';
+import { logOut } from '@/services/auth';
 
-const UserInfo: React.FC<{ user: ILoggedUser, logOut: () => void }> = ({ user, logOut }) => {
+const UserInfo: React.FC<{ user: ILoggedUser, logOut: () => void }> = ({ user }) => {
 
     return (
         <div className='bg-gray-900 rounded-md ring-1 ring-yellow-400 text-base p-2 space-y-4 text-white'>

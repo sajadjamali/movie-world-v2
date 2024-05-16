@@ -2,14 +2,9 @@
   box-shadow: 0 0 20px rgba(233, 228, 228, 0.6);
 }
 
-input:-webkit-autofill
-/* ,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active */
-{
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: #ffffff;
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ffffff;
 }
 
 #authPage {

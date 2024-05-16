@@ -6,11 +6,11 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PhonelinkRingIcon from '@mui/icons-material/PhonelinkRing';
 import { logOut } from '@/services/auth';
 
-const UserInfo: React.FC<{ user: ILoggedUser }> = ({ user }) => {
+const UserInfo: React.FC<{ user: ILoggedUser, logOut: () => void }> = ({ user }) => {
 
     const handleClick = async () => {
-       const res = await logOut();
-       console.log(res.message)
+        const res = await logOut();
+        console.log(res.message)
 
     }
 

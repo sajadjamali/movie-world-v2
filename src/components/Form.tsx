@@ -83,6 +83,21 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                     </>
                 }
                 <div>
+                    <label htmlFor='email' className='text-sky-500'>email</label>
+                    <input id='email' {...register('email', {
+                        required: 'email is required',
+                        pattern: {
+                            value: /^\s*[a-zA-Z0-9._%+-]+@gmail\.com\s*$/,
+                            message: "Invalid email address"
+                        }
+                    })} className={`input-auth ${errors.email && 'border-b-red-700'}`} />
+                    {
+                        errors.email && (
+                            <p className='text-red-500 font-normal mt-3 text-sm'>{errors.email?.message}</p>
+                        )
+                    }
+                </div>
+                <div>
                     <label htmlFor="password" className='text-sky-500'>password</label>
                     <div className='relative'>
                         <input id='password' {...register('password', {
@@ -99,21 +114,6 @@ const Form: React.FC<{ type: string, previousPage: string }> = ({ type, previous
                     {
                         errors.password && (
                             <p className='text-red-500 font-normal mt-3 text-sm'>{errors.password?.message}</p>
-                        )
-                    }
-                </div>
-                <div>
-                    <label htmlFor='email' className='text-sky-500'>email</label>
-                    <input id='email' {...register('email', {
-                        required: 'email is required',
-                        pattern: {
-                            value: /^\s*[a-zA-Z0-9._%+-]+@gmail\.com\s*$/,
-                            message: "Invalid email address"
-                        }
-                    })} className={`input-auth ${errors.email && 'border-b-red-700'}`} />
-                    {
-                        errors.email && (
-                            <p className='text-red-500 font-normal mt-3 text-sm'>{errors.email?.message}</p>
                         )
                     }
                 </div>

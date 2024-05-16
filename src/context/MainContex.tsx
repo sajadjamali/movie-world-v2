@@ -46,6 +46,7 @@ const MainContext = ({ children }: { children: React.ReactNode }) => {
             toast.success('logOut success');
             document.cookie = 'isLogged=; Path=/; Max-Age=0'
             setLoggedUser(initialUser);
+            window.location.reload();
         } catch (error) {
             console.log(error);
         }

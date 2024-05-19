@@ -22,7 +22,7 @@ const Movie: React.FC<{ movie: MovieType, effect: string }> = ({ movie, effect }
                                 width={250}
                                 height={250}
                                 src={`${imgBaseUrl}${movie.poster_path}`}
-                                // unoptimized
+                                //unoptimized
                                 blurDataURL={blurHash}
                                 placeholder="blur"
                             />

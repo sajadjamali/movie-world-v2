@@ -20,8 +20,11 @@ const MovieActors: React.FC<{ actors: ActorType[] }> = ({ actors }) => {
                     )).slice(0, showAllActors ? actors.length - 1 : 8)
                 }
             </div>
-            <button className='bg-yellow-600 px-2 py-1 rounded-md block w-32 mx-auto hover:bg-red-600 mt-5' onClick={() => setShowAllActors(!showAllActors)}>{showAllActors ? 'show less' : 'show more'}</button>
-        </section>
+            {
+                actors.length - 1 > 8 &&
+                < button className='bg-yellow-600 px-2 py-1 rounded-md block w-32 mx-auto hover:bg-red-600 mt-5' onClick={() => setShowAllActors(!showAllActors)}>{showAllActors ? 'show less' : 'show more'}</button>
+            }
+        </section >
     )
 }
 

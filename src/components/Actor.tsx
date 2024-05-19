@@ -12,7 +12,7 @@ const Actor: React.FC<{ actor: ActorType }> = ({ actor }) => {
                 <Image
                     className="rounded-md h-48 border-2 border-white transition-transform duration-300 ease-in-out hover:scale-105"
                     width={150} height={50}
-                    //unoptimized
+                    unoptimized
                     src={`${imgBaseUrl}${actor.profile_path}`}
                     alt={actor.name}
                     blurDataURL={blurHash}

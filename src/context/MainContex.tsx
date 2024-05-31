@@ -2,6 +2,7 @@
 import { toast } from "react-toastify";
 import { logOut } from "@/services/auth";
 import { isLoggedUser } from "@/utils/auth";
+import { useRouter } from "next/navigation";
 import { getLoggedUser } from '@/services/auth';
 import { ILoggedUser as UserType } from "@/types/auth";
 import { createContext, useContext, useState, useEffect } from "react";
@@ -24,6 +25,7 @@ const Context = createContext<MainContextValue>({
 
 const MainContext = ({ children }: { children: React.ReactNode }) => {
 
+    const router = useRouter();
     const [loggedUser, setLoggedUser] = useState<UserType>(initialUser);
 
     useEffect(() => {
@@ -46,7 +48,7 @@ const MainContext = ({ children }: { children: React.ReactNode }) => {
             toast.success('logOut success');
             document.cookie = 'isLogged=; Path=/; Max-Age=0'
             setLoggedUser(initialUser);
-            window.location.reload();
+            router.refresh();
         } catch (error) {
             console.log(error);
         }

@@ -10,6 +10,7 @@ import { links } from '@/constant';
 import SearchBox from './SearchBox';
 import { usePathname } from 'next/navigation';
 import GenreList from '@/components/GenreList';
+import logo from "../app/logo.png"
 
 const Header: React.FC = () => {
 

@@ -4,7 +4,7 @@ import { MainContext } from "@/context/MainContex"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className='flex flex-col h-screen'>
+    <div className='flex flex-col h-dvh'>
       <MainContext>
         < Header />
         <div className="mt-[65px] lg:mt-[64px]">

@@ -19,10 +19,7 @@ const myFont = localFont({
 
 export const metadata: Metadata = {
   title: 'Movie World',
-  description: '',
-  icons: {
-    icon: '/assets/imgs/logo.png'
-  }
+  description: ''
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

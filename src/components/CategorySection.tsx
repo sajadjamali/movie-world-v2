@@ -9,7 +9,12 @@ import ForwardIcon from '@mui/icons-material/Forward';
 import dynamic from 'next/dynamic';
 const CategorySectionSlider = dynamic(() => import('./CategorySectionSlider'))
 
-const CategorySection: React.FC<{ sectionName: string, effect: string }> = async ({ sectionName, effect }) => {
+interface PropsType {
+    sectionName: string,
+    effect: string
+}
+
+const CategorySection = async ({ sectionName, effect }: PropsType) => {
 
     const movies = await getMovies(sectionName, 2);
 

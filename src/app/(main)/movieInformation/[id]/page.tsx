@@ -35,8 +35,8 @@ const Page = async ({ params }: { params: { id: string } }) => {
                 {
                     movie.backdrop_path ?
                         <>
-                            <Image id="movieImg" className="rounded-lg mb-6 hidden lg:block mt-8 mx-auto lg:mx-0 w-11/12 sm:w-10/12 lg:w-5/12 h-96 lg:h-auto" src={`${imgBaseUrl}${movie.poster_path}`} width={100} height={100} alt={movie.original_title} unoptimized />
-                            <Image id="movieImg" className="rounded-lg mb-6 lg:hidden mt-8 mx-auto lg:mx-0 w-11/12 sm:w-10/12 lg:w-5/12 h-96 lg:h-auto" src={`${imgBaseUrl}${movie.backdrop_path}`} width={100} height={100} alt={movie.original_title} unoptimized />
+                            <Image id="movieImg" className="rounded-lg mb-6 hidden lg:block mt-8 mx-auto lg:mx-0 w-11/12 sm:w-10/12 lg:w-5/12 h-96 lg:h-auto" src={`${imgBaseUrl}${movie.poster_path}`} width={100} height={100} alt={movie.original_title} />
+                            <Image id="movieImg" className="rounded-lg mb-6 lg:hidden mt-8 mx-auto lg:mx-0 w-11/12 sm:w-10/12 lg:w-5/12 h-96 lg:h-auto" src={`${imgBaseUrl}${movie.backdrop_path}`} width={100} height={100} alt={movie.original_title} />
                         </>
                         :
                         <Image id="movieImg" className="rounded-lg mb-6 mt-8 mx-auto lg:mx-0 w-11/12 sm:w-10/12 lg:w-5/12 h-96 lg:h-auto" src={`${imgBaseUrl}${movie.poster_path}`} width={100} height={100} alt={movie.original_title} unoptimized />
